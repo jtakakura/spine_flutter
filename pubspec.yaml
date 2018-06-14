@@ -1,0 +1,14 @@
+name: spine_flutter
+description: The spine-flutter runtime provides functionality to load and manipulate Spine skeletal animation data using Flutter.
+version: 0.1.0
+homepage: https://github.com/jtakakura/spine_flutter/
+author: Junji Takakura <j.takakura@gmail.com>
+
+dependencies:
+  flutter:
+    sdk: flutter
+  spine_core: ^0.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
