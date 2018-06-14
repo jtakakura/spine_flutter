@@ -21,10 +21,15 @@
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ******************************************************************************
 
-library spine_flutter;
+part of spine_flutter;
 
-import 'dart:ui' as ui;
+class Texture extends core.Texture {
+  Texture(ui.Image image) : super(image);
 
-import 'package:spine_core/spine_core.dart' as core;
-
-part 'src/texture.dart';
+  @override
+  void setFilters(core.TextureFilter minFilter, core.TextureFilter magFilter) {}
+  @override
+  void setWraps(core.TextureWrap uWrap, core.TextureWrap vWrap) {}
+  @override
+  void dispose() {}
+}
