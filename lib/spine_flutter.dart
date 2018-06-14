@@ -32,4 +32,5 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:spine_core/spine_core.dart' as core;
 
 part 'src/asset_loader.dart';
+part 'src/skeleton_animation.dart';
 part 'src/texture.dart';
