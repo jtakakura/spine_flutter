@@ -36,8 +36,8 @@ class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
       this.fit,
       this.alignment,
       this.playState,
-      this.debugRendering,
-      this.triangleRendering});
+      this.debugRendering = false,
+      this.triangleRendering = false});
 
   @override
   RenderObject createRenderObject(BuildContext context) {
@@ -46,8 +46,8 @@ class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
       ..fit = fit
       ..alignment = alignment
       ..playState = playState
-      ..debugRendering
-      ..triangleRendering;
+      ..debugRendering = debugRendering
+      ..triangleRendering = triangleRendering;
   }
 
   @override
@@ -58,8 +58,8 @@ class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
       ..fit = fit
       ..alignment = alignment
       ..playState = playState
-      ..debugRendering
-      ..triangleRendering;
+      ..debugRendering = debugRendering
+      ..triangleRendering = triangleRendering;
   }
 }
 
@@ -72,9 +72,9 @@ class SkeletonRenderObject extends RenderBox {
   BoxFit _fit;
   Alignment _alignment;
   PlayState _playState;
+  core.Bounds _bounds;
   bool _debugRendering;
   bool _triangleRendering;
-  core.Bounds _bounds;
   Float32List _vertices = new Float32List(8 * 1024);
   double _lastFrameTime = 0.0;
 

@@ -40,7 +40,7 @@ class SkeletonAnimation extends core.Skeleton {
 
   static Future<SkeletonAnimation> createWithFiles(
       String atlasDataFile, String skeltonDataFile, String textureDataFile,
-      {String pathPrefix = ''}) async {
+      [String pathPrefix = '']) async {
     if (atlasDataFile == null)
       throw new ArgumentError('atlasDataFile cannot be null.');
     if (skeltonDataFile == null)

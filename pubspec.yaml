@@ -7,8 +7,12 @@ author: Junji Takakura <j.takakura@gmail.com>
 dependencies:
   flutter:
     sdk: flutter
-  spine_core: ^0.1.0
+  spine_core:
+    path: ../spine_core
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+environment:
+  sdk: ">=2.0.0-dev.51.0 <3.0.0"
