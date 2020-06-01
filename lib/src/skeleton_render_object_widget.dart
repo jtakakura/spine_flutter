@@ -540,7 +540,7 @@ class SkeletonRenderObject extends RenderBox {
         0 0 1 0
         0 0 0 1
       */
-      ..transform(Float64List.fromList([
+      ..transform(Float64List.fromList(<double>[
         a,
         b,
         0.0,

@@ -24,11 +24,11 @@
 part of flutter_spine;
 
 class SkeletonAnimation extends core.Skeleton {
-  final core.AnimationState state;
-
   SkeletonAnimation(core.SkeletonData data)
       : state = core.AnimationState(core.AnimationStateData(data)),
         super(data);
+
+  final core.AnimationState state;
 
   void applyState() {
     state.apply(this);
