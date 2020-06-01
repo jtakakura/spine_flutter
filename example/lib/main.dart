@@ -88,9 +88,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ]));
 
   void _loadSkeleton() {
-    SkeletonAnimation.createWithFiles('spineboy.atlas', 'spineboy.json',
-            'spineboy.png', 'assets/spineboy/')
-        .then((SkeletonAnimation skeleton) {
+    SkeletonAnimation.createWithFiles(
+      'spineboy.atlas',
+      'spineboy.json',
+      'spineboy.png',
+      pathPrefix: 'assets/spineboy/',
+    ).then((SkeletonAnimation skeleton) {
       skeleton.state.setAnimation(0, 'walk', true);
       setState(() => _skeleton = skeleton);
     });

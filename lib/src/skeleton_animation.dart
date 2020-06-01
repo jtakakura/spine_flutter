@@ -24,11 +24,11 @@
 part of flutter_spine;
 
 class SkeletonAnimation extends core.Skeleton {
+  final core.AnimationState state;
+
   SkeletonAnimation(core.SkeletonData data)
       : state = core.AnimationState(core.AnimationStateData(data)),
         super(data);
-
-  final core.AnimationState state;
 
   void applyState() {
     state.apply(this);
@@ -39,8 +39,14 @@ class SkeletonAnimation extends core.Skeleton {
   }
 
   static Future<SkeletonAnimation> createWithFiles(
-      String atlasDataFile, String skeltonDataFile, String textureDataFile,
-      [String pathPrefix = '']) async {
+    String atlasDataFile,
+    String skeltonDataFile,
+    String textureDataFile, {
+    String pathPrefix = '',
+    String rawAtlas = '',
+    String rawSkeleton = '',
+    Uint8List rawTexture,
+  }) async {
     if (atlasDataFile == null)
       throw ArgumentError('atlasDataFile cannot be null.');
     if (skeltonDataFile == null)
@@ -52,9 +58,9 @@ class SkeletonAnimation extends core.Skeleton {
     final Map<String, dynamic> assets = <String, dynamic>{};
     final List<Future<MapEntry<String, dynamic>>> futures =
         <Future<MapEntry<String, dynamic>>>[
-      AssetLoader.loadJson(pathPrefix + skeltonDataFile),
-      AssetLoader.loadText(pathPrefix + atlasDataFile),
-      AssetLoader.loadTexture(pathPrefix + textureDataFile),
+      AssetLoader.loadJson(pathPrefix + skeltonDataFile, rawSkeleton),
+      AssetLoader.loadText(pathPrefix + atlasDataFile, rawAtlas),
+      AssetLoader.loadTexture(pathPrefix + textureDataFile, rawTexture),
     ];
     await Future.wait(futures).then(assets.addEntries);
 

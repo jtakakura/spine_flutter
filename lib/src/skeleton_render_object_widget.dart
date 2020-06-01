@@ -66,6 +66,7 @@ class SkeletonRenderObject extends RenderBox {
   static const List<int> quadTriangles = <int>[0, 1, 2, 2, 3, 0];
   static const int vertexSize = 2 + 2 + 4;
   final core.Color _tempColor = core.Color();
+  double globalAlpha = 1.0;
 
   SkeletonAnimation _skeleton;
   BoxFit _fit;
@@ -435,15 +436,7 @@ class SkeletonRenderObject extends RenderBox {
               skeletonColor.b * slotColor.b * attachmentColor.b,
               alpha);
 
-        if (color.r != 1 || color.g != 1 || color.b != 1 || color.a != 1) {
-          // final int alpha = (color.a * 255).toInt();
-          // paint.color = paint.color.withAlpha(alpha);
-
-          // experimental tinting via compositing, doesn't work
-          // ctx.globalCompositeOperation = "source-atop";
-          // ctx.fillStyle = "rgba(" + (color.r * 255 | 0) + ", " + (color.g * 255 | 0)  + ", " + (color.b * 255 | 0) + ", " + color.a + ")";
-          // ctx.fillRect(0, 0, w, h);
-        }
+        globalAlpha = color.a;
 
         for (int j = 0; j < triangles.length; j += 3) {
           final int t1 = triangles[j] * 8,
@@ -467,20 +460,22 @@ class SkeletonRenderObject extends RenderBox {
               canvas, texture, x0, y0, u0, v0, x1, y1, u1, v1, x2, y2, u2, v2);
 
           if (_debugRendering) {
-            // canvas
-            //   ..strokeStyle = 'green'
-            //   ..beginPath()
-            //   ..moveTo(x0, y0)
-            //   ..lineTo(x1, y1)
-            //   ..lineTo(x2, y2)
-            //   ..lineTo(x0, y0)
-            //   ..stroke();
+            final Path path = Path()
+              ..moveTo(x0, y0)
+              ..lineTo(x1, y1)
+              ..lineTo(x2, y2)
+              ..lineTo(x0, y0);
+            canvas.drawPath(
+              path,
+              Paint()
+                ..style = PaintingStyle.stroke
+                ..color = Colors.green
+                ..strokeWidth = 1,
+            );
           }
         }
       }
     }
-
-    // ctx.globalAlpha = 1;
   }
 
   // Adapted from http://extremelysatisfactorytotalitarianism.com/blog/?p=2120
@@ -507,12 +502,11 @@ class SkeletonRenderObject extends RenderBox {
     u2 *= img.width;
     v2 *= img.height;
 
-    // ctx
-    //   ..beginPath()
-    //   ..moveTo(x0, y0)
-    //   ..lineTo(x1, y1)
-    //   ..lineTo(x2, y2)
-    //   ..closePath();
+    final Path _path = Path()
+      ..moveTo(x0, y0)
+      ..lineTo(x1, y1)
+      ..lineTo(x2, y2)
+      ..close();
 
     x1 -= x0;
     y1 -= y0;
@@ -534,12 +528,42 @@ class SkeletonRenderObject extends RenderBox {
         e = x0 - a * u0 - c * v0,
         f = y0 - b * u0 - d * v0;
 
-    // ctx
-    //   ..save()
-    //   ..transform(a, b, c, d, e, f)
-    //   ..clip()
-    //   ..drawImage(img, 0, 0)
-    //   ..restore();
+    canvas
+      ..save()
+      ..clipPath(_path)
+
+      /*
+        https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/transform
+        http://www.opengl-tutorial.org/cn/beginners-tutorials/tutorial-3-matrices/
+        a c 0 e
+        b d 0 f
+        0 0 1 0
+        0 0 0 1
+      */
+      ..transform(Float64List.fromList([
+        a,
+        b,
+        0.0,
+        0.0,
+        c,
+        d,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        e,
+        f,
+        0.0,
+        1.0,
+      ]));
+
+    final Paint p = Paint()..isAntiAlias = true;
+    p.color = p.color.withOpacity(globalAlpha);
+    canvas
+      ..drawImage(img, const Offset(0.0, 0.0), p)
+      ..restore();
   }
 
   void _resize(Canvas canvas, ui.Offset offset) {
