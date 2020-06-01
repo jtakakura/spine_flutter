@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spine_flutter/spine_flutter.dart';
+import 'package:flutter_spine/flutter_spine.dart';
 
 void main() => runApp(new MyApp());
 

@@ -19,7 +19,7 @@
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ******************************************************************************
 
-part of spine_flutter;
+part of flutter_spine;
 
 enum PlayState { Paused, Playing }
 
