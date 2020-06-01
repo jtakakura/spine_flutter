@@ -24,13 +24,6 @@ part of flutter_spine;
 enum PlayState { Paused, Playing }
 
 class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
-  final SkeletonAnimation skeleton;
-  final BoxFit fit;
-  final Alignment alignment;
-  final PlayState playState;
-  final bool debugRendering;
-  final bool triangleRendering;
-
   const SkeletonRenderObjectWidget(
       {this.skeleton,
       this.fit,
@@ -39,16 +32,22 @@ class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
       this.debugRendering = false,
       this.triangleRendering = false});
 
+  final SkeletonAnimation skeleton;
+  final BoxFit fit;
+  final Alignment alignment;
+  final PlayState playState;
+  final bool debugRendering;
+  final bool triangleRendering;
+
   @override
-  RenderObject createRenderObject(BuildContext context) {
-    return new SkeletonRenderObject()
-      ..skeleton = skeleton
-      ..fit = fit
-      ..alignment = alignment
-      ..playState = playState
-      ..debugRendering = debugRendering
-      ..triangleRendering = triangleRendering;
-  }
+  RenderObject createRenderObject(BuildContext context) =>
+      SkeletonRenderObject()
+        ..skeleton = skeleton
+        ..fit = fit
+        ..alignment = alignment
+        ..playState = playState
+        ..debugRendering = debugRendering
+        ..triangleRendering = triangleRendering;
 
   @override
   void updateRenderObject(
@@ -66,7 +65,7 @@ class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
 class SkeletonRenderObject extends RenderBox {
   static const List<int> quadTriangles = <int>[0, 1, 2, 2, 3, 0];
   static const int vertexSize = 2 + 2 + 4;
-  final core.Color _tempColor = new core.Color();
+  final core.Color _tempColor = core.Color();
 
   SkeletonAnimation _skeleton;
   BoxFit _fit;
@@ -75,7 +74,7 @@ class SkeletonRenderObject extends RenderBox {
   core.Bounds _bounds;
   bool _debugRendering;
   bool _triangleRendering;
-  Float32List _vertices = new Float32List(8 * 1024);
+  Float32List _vertices = Float32List(8 * 1024);
   double _lastFrameTime = 0.0;
 
   void beginFrame(Duration timeStamp) {
@@ -196,11 +195,11 @@ class SkeletonRenderObject extends RenderBox {
     skeleton
       ..setToSetupPose()
       ..updateWorldTransform();
-    final core.Vector2 offset = new core.Vector2();
-    final core.Vector2 size = new core.Vector2();
+    final core.Vector2 offset = core.Vector2();
+    final core.Vector2 size = core.Vector2();
     skeleton.getBounds(offset, size, <double>[]);
 
-    return new core.Bounds(offset, size);
+    return core.Bounds(offset, size);
   }
 
   Float32List _computeRegionVertices(
@@ -271,7 +270,7 @@ class SkeletonRenderObject extends RenderBox {
 
     final int numVertices = mesh.worldVerticesLength ~/ 2;
     if (_vertices.length < mesh.worldVerticesLength) {
-      _vertices = new Float32List(mesh.worldVerticesLength);
+      _vertices = Float32List(mesh.worldVerticesLength);
     }
     final Float32List vertices = _vertices;
     mesh.computeWorldVertices(
@@ -293,7 +292,7 @@ class SkeletonRenderObject extends RenderBox {
   }
 
   void _drawImages(ui.Canvas canvas, SkeletonAnimation skeleton) {
-    final Paint paint = new Paint();
+    final Paint paint = Paint();
     final List<core.Slot> drawOrder = skeleton.drawOrder;
 
     // @TODO デバッグ表示実装

@@ -24,11 +24,11 @@
 part of flutter_spine;
 
 class SkeletonAnimation extends core.Skeleton {
-  final core.AnimationState state;
-
   SkeletonAnimation(core.SkeletonData data)
-      : state = new core.AnimationState(new core.AnimationStateData(data)),
+      : state = core.AnimationState(core.AnimationStateData(data)),
         super(data);
+
+  final core.AnimationState state;
 
   void applyState() {
     state.apply(this);
@@ -42,13 +42,12 @@ class SkeletonAnimation extends core.Skeleton {
       String atlasDataFile, String skeltonDataFile, String textureDataFile,
       [String pathPrefix = '']) async {
     if (atlasDataFile == null)
-      throw new ArgumentError('atlasDataFile cannot be null.');
+      throw ArgumentError('atlasDataFile cannot be null.');
     if (skeltonDataFile == null)
-      throw new ArgumentError('skeltonDataFile cannot be null.');
+      throw ArgumentError('skeltonDataFile cannot be null.');
     if (textureDataFile == null)
-      throw new ArgumentError('textureDataFile cannot be null.');
-    if (pathPrefix == null)
-      throw new ArgumentError('pathPrefix cannot be null.');
+      throw ArgumentError('textureDataFile cannot be null.');
+    if (pathPrefix == null) throw ArgumentError('pathPrefix cannot be null.');
 
     final Map<String, dynamic> assets = <String, dynamic>{};
     final List<Future<MapEntry<String, dynamic>>> futures =
@@ -59,14 +58,14 @@ class SkeletonAnimation extends core.Skeleton {
     ];
     await Future.wait(futures).then(assets.addEntries);
 
-    final core.TextureAtlas atlas = new core.TextureAtlas(
+    final core.TextureAtlas atlas = core.TextureAtlas(
         assets[pathPrefix + atlasDataFile],
         (String path) => assets[pathPrefix + path]);
     final core.AtlasAttachmentLoader atlasLoader =
-        new core.AtlasAttachmentLoader(atlas);
-    final core.SkeletonJson skeletonJson = new core.SkeletonJson(atlasLoader);
+        core.AtlasAttachmentLoader(atlas);
+    final core.SkeletonJson skeletonJson = core.SkeletonJson(atlasLoader);
     final core.SkeletonData skeletonData =
         skeletonJson.readSkeletonData(assets[pathPrefix + skeltonDataFile]);
-    return new SkeletonAnimation(skeletonData);
+    return SkeletonAnimation(skeletonData);
   }
 }

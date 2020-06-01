@@ -27,22 +27,22 @@ class AssetLoader {
   static Future<MapEntry<String, dynamic>> loadJson(String path) async {
     final String data = await rootBundle.loadString(path);
     if (data == null) throw StateError('Couldn\'t load texture $path');
-    return new MapEntry<String, dynamic>(path, json.decode(data));
+    return MapEntry<String, dynamic>(path, json.decode(data));
   }
 
   static Future<MapEntry<String, String>> loadText(String path) async {
     final String data = await rootBundle.loadString(path);
     if (data == null) throw StateError('Couldn\'t load texture $path');
-    return new MapEntry<String, String>(path, data);
+    return MapEntry<String, String>(path, data);
   }
 
   static Future<MapEntry<String, Texture>> loadTexture(String path) async {
-    if (path == null) throw new ArgumentError('path cannot be null.');
+    if (path == null) throw ArgumentError('path cannot be null.');
     final ByteData data = await rootBundle.load(path);
     if (data == null) throw StateError('Couldn\'t load texture $path');
     final ui.Codec codec =
         await ui.instantiateImageCodec(data.buffer.asUint8List());
     final ui.FrameInfo frame = await codec.getNextFrame();
-    return new MapEntry<String, Texture>(path, new Texture(frame.image));
+    return MapEntry<String, Texture>(path, Texture(frame.image));
   }
 }
