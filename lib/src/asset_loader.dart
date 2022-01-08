@@ -25,39 +25,34 @@ part of flutter_spine;
 
 class AssetLoader {
   static Future<MapEntry<String, dynamic>> loadJson(
-      String path, String raw) async {
+      String path, String? raw) async {
     String data;
     if (raw != null && raw != '') {
       data = raw;
     } else {
       data = await rootBundle.loadString(path);
-      if (data == null) throw StateError('Couldn\'t load texture $path');
     }
     return new MapEntry<String, dynamic>(path, json.decode(data));
   }
 
   static Future<MapEntry<String, String>> loadText(
-      String path, String raw) async {
+      String path, String? raw) async {
     String data;
     if (raw != null && raw != '') {
       data = raw;
     } else {
       data = await rootBundle.loadString(path);
-      if (data == null) throw StateError('Couldn\'t load texture $path');
     }
     return new MapEntry<String, String>(path, data);
   }
 
   static Future<MapEntry<String, Texture>> loadTexture(
-      String path, Uint8List raw) async {
-    if (path == null) throw new ArgumentError('path cannot be null.');
-
+      String path, Uint8List? raw) async {
     Uint8List data;
     if (raw != null) {
       data = raw;
     } else {
       final ByteData byteData = await rootBundle.load(path);
-      if (byteData == null) throw StateError('Couldn\'t load texture $path');
       data = byteData.buffer.asUint8List();
     }
     final ui.Codec codec = await ui.instantiateImageCodec(data);

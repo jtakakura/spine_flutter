@@ -25,10 +25,10 @@ enum PlayState { Paused, Playing }
 
 class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
   const SkeletonRenderObjectWidget(
-      {this.skeleton,
-      this.fit,
-      this.alignment,
-      this.playState,
+      {required this.skeleton,
+      required this.fit,
+      required this.alignment,
+      required this.playState,
       this.debugRendering = false,
       this.triangleRendering = false});
 
@@ -65,16 +65,17 @@ class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
 class SkeletonRenderObject extends RenderBox {
   static const List<int> quadTriangles = <int>[0, 1, 2, 2, 3, 0];
   static const int vertexSize = 2 + 2 + 4;
+
   final core.Color _tempColor = core.Color();
   double globalAlpha = 1.0;
 
-  SkeletonAnimation _skeleton;
-  BoxFit _fit;
-  Alignment _alignment;
-  PlayState _playState;
-  core.Bounds _bounds;
-  bool _debugRendering;
-  bool _triangleRendering;
+  SkeletonAnimation? _skeleton;
+  BoxFit? _fit;
+  Alignment? _alignment;
+  PlayState? _playState;
+  core.Bounds? _bounds;
+  bool? _debugRendering;
+  bool? _triangleRendering;
   Float32List _vertices = Float32List(8 * 1024);
   double _lastFrameTime = 0.0;
 
@@ -84,20 +85,20 @@ class SkeletonRenderObject extends RenderBox {
 
     if (_lastFrameTime == 0 || _skeleton == null) {
       _lastFrameTime = t;
-      SchedulerBinding.instance.scheduleFrameCallback(beginFrame);
+      SchedulerBinding.instance!.scheduleFrameCallback(beginFrame);
       return;
     }
 
     final double deltaTime = t - _lastFrameTime;
     _lastFrameTime = t;
 
-    _skeleton
+    _skeleton!
       ..updateState(deltaTime)
       ..applyState()
       ..updateWorldTransform();
 
     if (_playState == PlayState.Playing) {
-      SchedulerBinding.instance.scheduleFrameCallback(beginFrame);
+      SchedulerBinding.instance!.scheduleFrameCallback(beginFrame);
     }
 
     markNeedsPaint();
@@ -115,10 +116,10 @@ class SkeletonRenderObject extends RenderBox {
 
     _resize(canvas, offset);
 
-    if (_triangleRendering) {
-      _drawTriangles(canvas, _skeleton);
+    if (_triangleRendering!) {
+      _drawTriangles(canvas, _skeleton!);
     } else {
-      _drawImages(canvas, _skeleton);
+      _drawImages(canvas, _skeleton!);
     }
 
     canvas.restore();
@@ -128,6 +129,9 @@ class SkeletonRenderObject extends RenderBox {
   bool get sizedByParent => true;
 
   @override
+  bool get isRepaintBoundary => true;
+
+  @override
   bool hitTestSelf(Offset screenOffset) => true;
 
   @override
@@ -135,26 +139,26 @@ class SkeletonRenderObject extends RenderBox {
     size = constraints.biggest;
   }
 
-  SkeletonAnimation get skeleton => _skeleton;
+  SkeletonAnimation get skeleton => _skeleton!;
   set skeleton(SkeletonAnimation value) {
     if (value == _skeleton) {
       return;
     }
     _skeleton = value;
-    if (_skeleton != null) _bounds = _calculateBounds(_skeleton);
+    if (_skeleton != null) _bounds = _calculateBounds(_skeleton!);
     markNeedsPaint();
   }
 
-  AlignmentGeometry get alignment => _alignment;
+  AlignmentGeometry get alignment => _alignment ?? Alignment.center;
   set alignment(AlignmentGeometry value) {
     if (value == _alignment) {
       return;
     }
-    _alignment = value;
+    _alignment = value as Alignment;
     markNeedsPaint();
   }
 
-  BoxFit get fit => _fit;
+  BoxFit get fit => _fit ?? BoxFit.cover;
   set fit(BoxFit value) {
     if (value == _fit) {
       return;
@@ -163,18 +167,18 @@ class SkeletonRenderObject extends RenderBox {
     markNeedsPaint();
   }
 
-  PlayState get playState => _playState;
+  PlayState get playState => _playState ?? PlayState.Playing;
   set playState(PlayState value) {
     if (value == _playState) {
       return;
     }
     _playState = value;
     if (_playState == PlayState.Playing) {
-      SchedulerBinding.instance.scheduleFrameCallback(beginFrame);
+      SchedulerBinding.instance!.scheduleFrameCallback(beginFrame);
     }
   }
 
-  bool get debugRendering => _debugRendering;
+  bool get debugRendering => _debugRendering ?? false;
   set debugRendering(bool value) {
     if (_debugRendering == value) {
       return;
@@ -183,7 +187,7 @@ class SkeletonRenderObject extends RenderBox {
     markNeedsPaint();
   }
 
-  bool get triangleRendering => _triangleRendering;
+  bool get triangleRendering => _triangleRendering ?? false;
   set triangleRendering(bool value) {
     if (_triangleRendering == value) {
       return;
@@ -381,7 +385,7 @@ class SkeletonRenderObject extends RenderBox {
           Rect.fromLTWH(region.x.toDouble(), region.y.toDouble(), w, h),
           Rect.fromLTWH(0.0, 0.0, w, h),
           paint);
-      if (_debugRendering)
+      if (_debugRendering!)
         canvas.drawRect(Rect.fromLTWH(0.0, 0.0, w, h), paint);
       canvas.restore();
     }
@@ -390,7 +394,7 @@ class SkeletonRenderObject extends RenderBox {
   }
 
   void _drawTriangles(ui.Canvas canvas, SkeletonAnimation skeleton) {
-    core.BlendMode blendMode;
+    core.BlendMode? blendMode;
 
     final List<core.Slot> drawOrder = skeleton.drawOrder;
     Float32List vertices = _vertices;
@@ -400,14 +404,14 @@ class SkeletonRenderObject extends RenderBox {
     for (int i = 0; i < n; i++) {
       final core.Slot slot = drawOrder[i];
       final core.Attachment attachment = slot.getAttachment();
-      ui.Image texture;
+      ui.Image? texture;
       core.TextureAtlasRegion region;
       core.Color attachmentColor;
       if (attachment is core.RegionAttachment) {
         final core.RegionAttachment regionAttachment = attachment;
         vertices = _computeRegionVertices(slot, regionAttachment, false);
         triangles = quadTriangles;
-        region = regionAttachment.region;
+        region = regionAttachment.region as core.TextureAtlasRegion;
         texture = region.texture.image;
         attachmentColor = regionAttachment.color;
       } else if (attachment is core.MeshAttachment) {
@@ -459,7 +463,7 @@ class SkeletonRenderObject extends RenderBox {
           _drawTriangle(
               canvas, texture, x0, y0, u0, v0, x1, y1, u1, v1, x2, y2, u2, v2);
 
-          if (_debugRendering) {
+          if (_debugRendering!) {
             final Path path = Path()
               ..moveTo(x0, y0)
               ..lineTo(x1, y1)
@@ -571,14 +575,14 @@ class SkeletonRenderObject extends RenderBox {
       return;
     }
 
-    final double contentHeight = _bounds.size.y;
-    final double contentWidth = _bounds.size.x;
-    final double x = -_bounds.offset.x -
+    final double contentHeight = _bounds!.size.y;
+    final double contentWidth = _bounds!.size.x;
+    final double x = -_bounds!.offset.x -
         contentWidth / 2.0 -
-        (_alignment.x * contentWidth / 2.0);
-    final double y = -_bounds.offset.y -
+        (_alignment!.x * contentWidth / 2.0);
+    final double y = -_bounds!.offset.y -
         contentHeight / 2.0 +
-        (_alignment.y * contentHeight / 2.0);
+        (_alignment!.y * contentHeight / 2.0);
     double scaleX = 1.0, scaleY = 1.0;
 
     switch (_fit) {
@@ -605,6 +609,7 @@ class SkeletonRenderObject extends RenderBox {
         scaleX = scaleY = minScale;
         break;
       case BoxFit.none:
+      case null:
         scaleX = scaleY = 1.0;
         break;
       case BoxFit.scaleDown:
@@ -616,8 +621,8 @@ class SkeletonRenderObject extends RenderBox {
 
     canvas
       ..translate(
-          offset.dx + size.width / 2.0 + (_alignment.x * size.width / 2.0),
-          offset.dy + size.height / 2.0 + (_alignment.y * size.height / 2.0))
+          offset.dx + size.width / 2.0 + (_alignment!.x * size.width / 2.0),
+          offset.dy + size.height / 2.0 + (_alignment!.y * size.height / 2.0))
       ..scale(scaleX, -scaleY)
       ..translate(x, y);
   }

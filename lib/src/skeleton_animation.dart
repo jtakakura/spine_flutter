@@ -40,25 +40,17 @@ class SkeletonAnimation extends core.Skeleton {
 
   static Future<SkeletonAnimation> createWithFiles(
     String atlasDataFile,
-    String skeltonDataFile,
+    String skeletonDataFile,
     String textureDataFile, {
     String pathPrefix = '',
     String rawAtlas = '',
     String rawSkeleton = '',
-    Uint8List rawTexture,
+    Uint8List? rawTexture,
   }) async {
-    if (atlasDataFile == null)
-      throw ArgumentError('atlasDataFile cannot be null.');
-    if (skeltonDataFile == null)
-      throw ArgumentError('skeltonDataFile cannot be null.');
-    if (textureDataFile == null)
-      throw ArgumentError('textureDataFile cannot be null.');
-    if (pathPrefix == null) throw ArgumentError('pathPrefix cannot be null.');
-
     final Map<String, dynamic> assets = <String, dynamic>{};
     final List<Future<MapEntry<String, dynamic>>> futures =
         <Future<MapEntry<String, dynamic>>>[
-      AssetLoader.loadJson(pathPrefix + skeltonDataFile, rawSkeleton),
+      AssetLoader.loadJson(pathPrefix + skeletonDataFile, rawSkeleton),
       AssetLoader.loadText(pathPrefix + atlasDataFile, rawAtlas),
       AssetLoader.loadTexture(pathPrefix + textureDataFile, rawTexture),
     ];
@@ -71,7 +63,7 @@ class SkeletonAnimation extends core.Skeleton {
         core.AtlasAttachmentLoader(atlas);
     final core.SkeletonJson skeletonJson = core.SkeletonJson(atlasLoader);
     final core.SkeletonData skeletonData =
-        skeletonJson.readSkeletonData(assets[pathPrefix + skeltonDataFile]);
+        skeletonJson.readSkeletonData(assets[pathPrefix + skeletonDataFile]);
     return SkeletonAnimation(skeletonData);
   }
 }
