@@ -32,10 +32,10 @@ class _MyHomePageState extends State<MyHomePage> {
   String get pathPrefix => 'assets/$name/';
 
   String name;
-  String defaultAnimation;
   Set<String> animations;
-
   SkeletonAnimation skeleton;
+
+  String defaultAnimation = '';
 
   @override
   void initState() {
