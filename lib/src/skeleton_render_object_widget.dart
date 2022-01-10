@@ -534,7 +534,7 @@ class SkeletonRenderObject extends RenderBox {
 
     canvas
       ..save()
-      ..clipPath(_path)
+      ..clipPath(_path, doAntiAlias: false)
 
       /*
         https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/transform
