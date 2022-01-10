@@ -523,7 +523,7 @@
         }
       }
     },
-    "idle_offset_1": {
+    "idle_1": {
       "bones": {
         "raccoon_body_1": {
           "rotate": [
@@ -869,7 +869,7 @@
         }
       }
     },
-    "idle_offset_2": {
+    "idle_2": {
       "bones": {
         "raccoon_body_1": {
           "rotate": [
@@ -1202,7 +1202,7 @@
         }
       }
     },
-    "idle_offset_3": {
+    "idle_3": {
       "bones": {
         "raccoon_body_1": {
           "rotate": [
@@ -1586,7 +1586,7 @@
         }
       }
     },
-    "idle_offset_4": {
+    "idle_4": {
       "bones": {
         "raccoon_body_1": {
           "rotate": [

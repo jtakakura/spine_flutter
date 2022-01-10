@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     // raccoon
     name = 'raccoon';
-    defaultAnimation = 'idle_offset_4';
+    defaultAnimation = 'idle_4';
 
     // raptor
     //name = 'raptor';
