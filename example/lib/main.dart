@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     // raccoon
     name = 'raccoon';
-    defaultAnimation = 'idle_4';
+    //defaultAnimation = 'idle_4';
 
     // raptor
     //name = 'raptor';
@@ -59,10 +59,11 @@ class _MyHomePageState extends State<MyHomePage> {
         future: load(),
         builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
           if (snapshot.hasData) {
-            skeleton.state.setAnimation(0, defaultAnimation, true);
-            if (defaultAnimation.isEmpty && animations.isNotEmpty) {
+            if ((defaultAnimation == null || defaultAnimation.isEmpty) &&
+                animations.isNotEmpty) {
               defaultAnimation = animations.first;
             }
+            skeleton.state.setAnimation(0, defaultAnimation, true);
 
             return _buildScreen();
           }
