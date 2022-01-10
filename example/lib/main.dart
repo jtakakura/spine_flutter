@@ -32,9 +32,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
     // raccoon
     name = 'raccoon';
-    defaultAnimation = 'idle';
+    defaultAnimation = 'idle_offset_4';
     animations = <String>[
       'idle',
+      'idle_offset_1',
+      'idle_offset_2',
+      'idle_offset_3',
+      'idle_offset_4',
     ];
 
     // raptor
