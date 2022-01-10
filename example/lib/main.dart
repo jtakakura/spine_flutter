@@ -41,16 +41,12 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
 
-    // raccoon
-    name = 'raccoon';
-    //defaultAnimation = 'idle_4';
+    // spineboy
+    name = 'spineboy';
+    defaultAnimation = 'walk';
 
     // raptor
     //name = 'raptor';
-    //defaultAnimation = 'walk';
-
-    // spineboy
-    //name = 'spineboy';
     //defaultAnimation = 'walk';
   }
 
