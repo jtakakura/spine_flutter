@@ -1,0 +1,69 @@
+
+raccoon.png
+size: 885, 1034
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+raccoon_body
+  rotate: false
+  xy: 2, 12
+  size: 426, 634
+  orig: 426, 634
+  offset: 0, 0
+  index: -1
+raccoon_head
+  rotate: false
+  xy: 430, 129
+  size: 215, 270
+  orig: 218, 272
+  offset: 2, 1
+  index: -1
+raccoon_paw_back_left_1
+  rotate: true
+  xy: 844, 960
+  size: 72, 39
+  orig: 74, 42
+  offset: 1, 1
+  index: -1
+raccoon_paw_back_left_2
+  rotate: true
+  xy: 647, 135
+  size: 264, 223
+  orig: 266, 225
+  offset: 1, 1
+  index: -1
+raccoon_paw_back_right_1
+  rotate: true
+  xy: 701, 54
+  size: 79, 46
+  orig: 81, 48
+  offset: 1, 1
+  index: -1
+raccoon_paw_front_left
+  rotate: false
+  xy: 681, 672
+  size: 161, 360
+  orig: 163, 360
+  offset: 2, 0
+  index: -1
+raccoon_paw_front_right
+  rotate: true
+  xy: 430, 2
+  size: 125, 269
+  orig: 126, 269
+  offset: 1, 0
+  index: -1
+raccoon_shadow
+  rotate: false
+  xy: 2, 648
+  size: 677, 384
+  orig: 679, 386
+  offset: 1, 1
+  index: -1
+raccoon_tail
+  rotate: true
+  xy: 430, 401
+  size: 245, 448
+  orig: 245, 448
+  offset: 0, 0
+  index: -1

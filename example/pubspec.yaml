@@ -20,9 +20,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/raptor/raptor.atlas
-    - assets/raptor/raptor.json
-    - assets/raptor/raptor.png
-    - assets/spineboy/spineboy.atlas
-    - assets/spineboy/spineboy.json
-    - assets/spineboy/spineboy.png
+    - assets/raccoon/
+    - assets/raptor/
+    - assets/spineboy/

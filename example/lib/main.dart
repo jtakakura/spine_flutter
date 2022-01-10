@@ -30,17 +30,11 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
 
-    // spineboy
-    name = 'spineboy';
-    defaultAnimation = 'walk';
+    // raccoon
+    name = 'raccoon';
+    defaultAnimation = 'idle';
     animations = <String>[
-      'death',
       'idle',
-      'jump',
-      'hit',
-      'run',
-      'shoot',
-      'walk',
     ];
 
     // raptor
@@ -52,6 +46,21 @@ class _MyHomePageState extends State<MyHomePage> {
       //'gun-holster',
       'jump',
       'roar',
+      'walk',
+    ];
+    */
+
+    // spineboy
+    /*
+    name = 'spineboy';
+    defaultAnimation = 'walk';
+    animations = <String>[
+      'death',
+      'idle',
+      'jump',
+      'hit',
+      'run',
+      'shoot',
       'walk',
     ];
     */
