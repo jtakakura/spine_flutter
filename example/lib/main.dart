@@ -1,10 +1,15 @@
 import 'dart:convert';
 
+import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spine/flutter_spine.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  Fimber.plantTree(DebugTree.elapsed(useColors: true));
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -16,7 +21,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key key}) : super(key: key);
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -31,9 +36,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   String get pathPrefix => 'assets/$name/';
 
-  String name;
-  Set<String> animations;
-  SkeletonAnimation skeleton;
+  late String name;
+  late Set<String> animations;
+  late SkeletonAnimation skeleton;
 
   String defaultAnimation = '';
 
@@ -42,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
 
     // raccoon
-    name = 'raccoon';
+    //name = 'raccoon';
     //defaultAnimation = 'idle_4';
 
     // raptor
@@ -50,8 +55,8 @@ class _MyHomePageState extends State<MyHomePage> {
     //defaultAnimation = 'walk';
 
     // spineboy
-    //name = 'spineboy';
-    //defaultAnimation = 'walk';
+    name = 'spineboy';
+    defaultAnimation = 'walk';
   }
 
   @override
@@ -59,8 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
         future: load(),
         builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
           if (snapshot.hasData) {
-            if ((defaultAnimation == null || defaultAnimation.isEmpty) &&
-                animations.isNotEmpty) {
+            if (defaultAnimation.isEmpty && animations.isNotEmpty) {
               defaultAnimation = animations.first;
             }
             skeleton.state.setAnimation(0, defaultAnimation, true);

@@ -58,7 +58,7 @@ class SkeletonAnimation extends core.Skeleton {
 
     final core.TextureAtlas atlas = core.TextureAtlas(
         assets[pathPrefix + atlasDataFile],
-        (String path) => assets[pathPrefix + path]);
+        (String? path) => assets[pathPrefix + path!]);
     final core.AtlasAttachmentLoader atlasLoader =
         core.AtlasAttachmentLoader(atlas);
     final core.SkeletonJson skeletonJson = core.SkeletonJson(atlasLoader);

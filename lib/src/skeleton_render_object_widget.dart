@@ -140,6 +140,7 @@ class SkeletonRenderObject extends RenderBox {
   }
 
   SkeletonAnimation get skeleton => _skeleton!;
+
   set skeleton(SkeletonAnimation value) {
     if (value == _skeleton) {
       return;
@@ -150,6 +151,7 @@ class SkeletonRenderObject extends RenderBox {
   }
 
   AlignmentGeometry get alignment => _alignment ?? Alignment.center;
+
   set alignment(AlignmentGeometry value) {
     if (value == _alignment) {
       return;
@@ -159,6 +161,7 @@ class SkeletonRenderObject extends RenderBox {
   }
 
   BoxFit get fit => _fit ?? BoxFit.cover;
+
   set fit(BoxFit value) {
     if (value == _fit) {
       return;
@@ -168,6 +171,7 @@ class SkeletonRenderObject extends RenderBox {
   }
 
   PlayState get playState => _playState ?? PlayState.Playing;
+
   set playState(PlayState value) {
     if (value == _playState) {
       return;
@@ -179,6 +183,7 @@ class SkeletonRenderObject extends RenderBox {
   }
 
   bool get debugRendering => _debugRendering ?? false;
+
   set debugRendering(bool value) {
     if (_debugRendering == value) {
       return;
@@ -188,6 +193,7 @@ class SkeletonRenderObject extends RenderBox {
   }
 
   bool get triangleRendering => _triangleRendering ?? false;
+
   set triangleRendering(bool value) {
     if (_triangleRendering == value) {
       return;
@@ -281,7 +287,7 @@ class SkeletonRenderObject extends RenderBox {
     mesh.computeWorldVertices(
         slot, 0, mesh.worldVerticesLength, vertices, 0, vertexSize);
 
-    final Float32List uvs = mesh.uvs;
+    final Float32List uvs = mesh.uvs!;
     final int n = numVertices;
     for (int i = 0, u = 0, v = 2; i < n; i++) {
       vertices[v++] = color.r;
@@ -309,7 +315,7 @@ class SkeletonRenderObject extends RenderBox {
 
     for (int i = 0; i < n; i++) {
       final core.Slot slot = drawOrder[i];
-      final core.Attachment attachment = slot.getAttachment();
+      final core.Attachment attachment = slot.getAttachment()!;
       core.RegionAttachment regionAttachment;
       core.TextureAtlasRegion region;
       ui.Image image;
@@ -320,7 +326,7 @@ class SkeletonRenderObject extends RenderBox {
 
       regionAttachment = attachment;
       region = regionAttachment.region as core.TextureAtlasRegion;
-      image = region.texture.image;
+      image = region.texture?.image;
 
       final core.Skeleton skeleton = slot.bone.skeleton;
       final core.Color skeletonColor = skeleton.color;
@@ -359,13 +365,13 @@ class SkeletonRenderObject extends RenderBox {
           1.0
         ]))
         ..translate(regionAttachment.offset[0], regionAttachment.offset[1])
-        ..rotate(regionAttachment.rotation * math.pi / 180);
+        ..rotate(regionAttachment.rotation! * math.pi / 180);
 
-      final double atlasScale = regionAttachment.width / w;
+      final double atlasScale = regionAttachment.width! / w;
 
       canvas
-        ..scale(atlasScale * regionAttachment.scaleX,
-            atlasScale * regionAttachment.scaleY)
+        ..scale(atlasScale * regionAttachment.scaleX!,
+            atlasScale * regionAttachment.scaleY!)
         ..translate(w / 2, h / 2);
       if (regionAttachment.region.rotate) {
         final double t = w;
@@ -382,7 +388,7 @@ class SkeletonRenderObject extends RenderBox {
       }
       canvas.drawImageRect(
           image,
-          Rect.fromLTWH(region.x.toDouble(), region.y.toDouble(), w, h),
+          Rect.fromLTWH(region.x!.toDouble(), region.y!.toDouble(), w, h),
           Rect.fromLTWH(0.0, 0.0, w, h),
           paint);
       if (_debugRendering!)
@@ -403,7 +409,11 @@ class SkeletonRenderObject extends RenderBox {
     final int n = drawOrder.length;
     for (int i = 0; i < n; i++) {
       final core.Slot slot = drawOrder[i];
-      final core.Attachment attachment = slot.getAttachment();
+      final core.Attachment? attachment = slot.getAttachment();
+      if (attachment == null) {
+        continue;
+      }
+
       ui.Image? texture;
       core.TextureAtlasRegion region;
       core.Color attachmentColor;
@@ -412,19 +422,19 @@ class SkeletonRenderObject extends RenderBox {
         vertices = _computeRegionVertices(slot, regionAttachment, false);
         triangles = quadTriangles;
         region = regionAttachment.region as core.TextureAtlasRegion;
-        texture = region.texture.image;
+        texture = region.texture?.image;
         attachmentColor = regionAttachment.color;
       } else if (attachment is core.MeshAttachment) {
         final core.MeshAttachment mesh = attachment;
         vertices = _computeMeshVertices(slot, mesh, false);
-        triangles = mesh.triangles;
-        texture = mesh.region.renderObject.texture.image;
+        triangles = mesh.triangles!;
+        texture = mesh.region?.renderObject.texture.image;
         attachmentColor = mesh.color;
       } else
         continue;
 
       if (texture != null) {
-        final core.BlendMode slotBlendMode = slot.data.blendMode;
+        final core.BlendMode slotBlendMode = slot.data.blendMode!;
         if (slotBlendMode != blendMode) {
           blendMode = slotBlendMode;
         }
