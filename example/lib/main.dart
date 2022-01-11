@@ -32,7 +32,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   String get skeletonFile => '$name.json';
 
-  String get textureFile => '$name.png';
+  List<String> textureFiles(int count) =>
+      List<String>.generate(count, (int i) => textureFile(i + 1));
+
+  String textureFile(int i) => i <= 1 ? '$name.png' : '${name}_$i.png';
 
   String get pathPrefix => 'assets/$name/';
 
@@ -41,10 +44,16 @@ class _MyHomePageState extends State<MyHomePage> {
   late SkeletonAnimation skeleton;
 
   String defaultAnimation = '';
+  int countTextureFiles = 1;
 
   @override
   void initState() {
     super.initState();
+
+    // cauldron
+    name = 'cauldron';
+    defaultAnimation = 'idle_1';
+    countTextureFiles = 3;
 
     // raccoon
     //name = 'raccoon';
@@ -55,8 +64,8 @@ class _MyHomePageState extends State<MyHomePage> {
     //defaultAnimation = 'walk';
 
     // spineboy
-    name = 'spineboy';
-    defaultAnimation = 'walk';
+    //name = 'spineboy';
+    //defaultAnimation = 'walk';
   }
 
   @override
@@ -139,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
       SkeletonAnimation.createWithFiles(
         atlasFile,
         skeletonFile,
-        textureFile,
+        textureFiles(countTextureFiles),
         pathPrefix: pathPrefix,
       );
 }

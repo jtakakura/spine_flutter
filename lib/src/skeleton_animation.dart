@@ -41,7 +41,7 @@ class SkeletonAnimation extends core.Skeleton {
   static Future<SkeletonAnimation> createWithFiles(
     String atlasDataFile,
     String skeletonDataFile,
-    String textureDataFile, {
+    List<String> textureDataFiles, {
     String pathPrefix = '',
     String rawAtlas = '',
     String rawSkeleton = '',
@@ -52,13 +52,16 @@ class SkeletonAnimation extends core.Skeleton {
         <Future<MapEntry<String, dynamic>>>[
       AssetLoader.loadJson(pathPrefix + skeletonDataFile, rawSkeleton),
       AssetLoader.loadText(pathPrefix + atlasDataFile, rawAtlas),
-      AssetLoader.loadTexture(pathPrefix + textureDataFile, rawTexture),
     ];
+    for (final String textureDataFile in textureDataFiles) {
+      futures.add(
+          AssetLoader.loadTexture(pathPrefix + textureDataFile, rawTexture));
+    }
     await Future.wait(futures).then(assets.addEntries);
 
     final core.TextureAtlas atlas = core.TextureAtlas(
         assets[pathPrefix + atlasDataFile],
-        (String? path) => assets[pathPrefix + path!]);
+        (String path) => assets[pathPrefix + path]);
     final core.AtlasAttachmentLoader atlasLoader =
         core.AtlasAttachmentLoader(atlas);
     final core.SkeletonJson skeletonJson = core.SkeletonJson(atlasLoader);

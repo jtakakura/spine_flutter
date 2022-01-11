@@ -1,0 +1,6202 @@
+{
+  "skeleton": {
+    "hash": "5c4lSvhe9ig",
+    "spine": "3.7-from-3.8-from-4.0.56",
+    "x": -685.63,
+    "y": 244.62,
+    "width": 2230.82,
+    "height": 3037.15,
+    "images": "../images/cauldron/",
+    "audio": ""
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "Fire_2_1",
+      "parent": "root",
+      "x": 552.32,
+      "y": 429.52,
+      "color": "dfff00ff"
+    },
+    {
+      "name": "Fire_2_2",
+      "parent": "Fire_2_1",
+      "length": 201.81,
+      "rotation": 91.7,
+      "x": 31.28,
+      "y": -42.65,
+      "scaleY": 1.8557,
+      "transform": "noRotationOrReflection",
+      "color": "dfff00ff"
+    },
+    {
+      "name": "Fire_2_3",
+      "parent": "Fire_2_2",
+      "length": 134.54,
+      "rotation": 97.41,
+      "x": 201.81,
+      "transform": "noRotationOrReflection",
+      "color": "dfff00ff"
+    },
+    {
+      "name": "Fire_2_4",
+      "parent": "Fire_2_3",
+      "length": 67.27,
+      "rotation": 111.73,
+      "x": 134.54,
+      "transform": "noRotationOrReflection",
+      "color": "dfff00ff"
+    },
+    {
+      "name": "Fire_1_1",
+      "parent": "root",
+      "rotation": -15.55,
+      "x": 213.81,
+      "y": 494.03,
+      "color": "dfff00ff"
+    },
+    {
+      "name": "Fire_1_2",
+      "parent": "Fire_1_1",
+      "length": 201.81,
+      "rotation": 78.68,
+      "x": 43.43,
+      "y": -28.9,
+      "scaleY": 1.8557,
+      "transform": "noRotationOrReflection",
+      "color": "dfff00ff"
+    },
+    {
+      "name": "Fire_1_3",
+      "parent": "Fire_1_2",
+      "length": 134.54,
+      "rotation": 83.01,
+      "x": 201.81,
+      "transform": "noRotationOrReflection",
+      "color": "dfff00ff"
+    },
+    {
+      "name": "Fire_1_4",
+      "parent": "Fire_1_3",
+      "length": 67.27,
+      "rotation": 97.53,
+      "x": 134.54,
+      "transform": "noRotationOrReflection",
+      "color": "dfff00ff"
+    },
+    {
+      "name": "Fire_3_1",
+      "parent": "root",
+      "rotation": 23.55,
+      "x": 907.43,
+      "y": 505.8,
+      "color": "dfff00ff"
+    },
+    {
+      "name": "Fire_3_2",
+      "parent": "Fire_3_1",
+      "length": 201.81,
+      "rotation": 113.36,
+      "x": 16.78,
+      "y": -18.46,
+      "scaleY": 1.8557,
+      "transform": "noRotationOrReflection",
+      "color": "dfff00ff"
+    },
+    {
+      "name": "Fire_3_3",
+      "parent": "Fire_3_2",
+      "length": 134.54,
+      "rotation": 119.03,
+      "x": 201.81,
+      "transform": "noRotationOrReflection",
+      "color": "dfff00ff"
+    },
+    {
+      "name": "Fire_3_4",
+      "parent": "Fire_3_3",
+      "length": 67.27,
+      "rotation": 130.93,
+      "x": 134.54,
+      "transform": "noRotationOrReflection",
+      "color": "dfff00ff"
+    },
+    {
+      "name": "cauldron_1",
+      "parent": "root",
+      "length": 646.52,
+      "rotation": 93.1,
+      "x": 567.43,
+      "y": 522.89,
+      "scaleX": 0.9183,
+      "scaleY": 1.0432,
+      "transform": "noRotationOrReflection"
+    },
+    {
+      "name": "smoke_1_1",
+      "parent": "cauldron_1",
+      "length": 735.3,
+      "rotation": 95.2,
+      "x": 541.75,
+      "y": -14.58,
+      "scaleX": 1.2036,
+      "scaleY": 2.242,
+      "transform": "onlyTranslation",
+      "color": "ff0000ff"
+    },
+    {
+      "name": "smoke_1_2",
+      "parent": "smoke_1_1",
+      "length": 490.2,
+      "rotation": 96.77,
+      "x": 735.3,
+      "transform": "noRotationOrReflection",
+      "color": "ff0000ff"
+    },
+    {
+      "name": "smoke_1_3",
+      "parent": "smoke_1_2",
+      "length": 245.1,
+      "rotation": 103.14,
+      "x": 490.2,
+      "transform": "noRotationOrReflection",
+      "color": "ff0000ff"
+    },
+    {
+      "name": "firewood_1",
+      "parent": "root",
+      "x": 519.97,
+      "y": 389.41
+    },
+    {
+      "name": "firewood_3",
+      "parent": "root",
+      "x": 519.97,
+      "y": 326.77
+    }
+  ],
+  "slots": [
+    {
+      "name": "cauldron_shadow",
+      "bone": "root",
+      "attachment": "cauldron_shadow"
+    },
+    {
+      "name": "fire_light",
+      "bone": "root",
+      "attachment": "fire_light"
+    },
+    {
+      "name": "cauldron_2",
+      "bone": "cauldron_1",
+      "attachment": "cauldron_2"
+    },
+    {
+      "name": "smoke_1",
+      "bone": "smoke_1_1",
+      "attachment": "smoke_1"
+    },
+    {
+      "name": "cauldron_1",
+      "bone": "cauldron_1",
+      "attachment": "cauldron_1"
+    },
+    {
+      "name": "Fire_2_1",
+      "bone": "Fire_2_1",
+      "attachment": "Fire_1"
+    },
+    {
+      "name": "Fire_1_1",
+      "bone": "Fire_1_1",
+      "attachment": "Fire_1"
+    },
+    {
+      "name": "Fire_3_1",
+      "bone": "Fire_3_1",
+      "attachment": "Fire_1"
+    },
+    {
+      "name": "firewood_2",
+      "bone": "firewood_3",
+      "attachment": "firewood_2"
+    },
+    {
+      "name": "firewood_1",
+      "bone": "cauldron_1",
+      "attachment": "firewood_1"
+    }
+  ],
+  "animations": {
+    "idle_1": {
+      "slots": {
+        "Fire_1_1": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.1333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.2,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.2667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.3333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.4,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.4667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.5333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.6,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.6333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.7,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.7667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.8333,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.9,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.9667,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.0333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.1,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.1667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.2333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.3,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.3667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.4333,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.5,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.5667,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.6333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.7,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.7667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.8333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.8667,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.9333,
+              "name": "Fire_4"
+            },
+            {
+              "time": 2,
+              "name": "Fire_5"
+            },
+            {
+              "time": 2.0667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 2.1333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 2.2,
+              "name": "Fire_8"
+            },
+            {
+              "time": 2.2667,
+              "name": "Fire_9"
+            },
+            {
+              "time": 2.3333,
+              "name": "Fire_1"
+            }
+          ]
+        },
+        "Fire_2_1": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.1333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.2,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.2667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.3333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.4,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.4667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.5333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.6,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.6333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.7,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.7667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.8333,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.9,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.9667,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.0333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.1,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.1667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.2333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.3,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.3667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.4333,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.5,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.5667,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.6333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.7,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.7667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.8333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.8667,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.9333,
+              "name": "Fire_4"
+            },
+            {
+              "time": 2,
+              "name": "Fire_5"
+            },
+            {
+              "time": 2.0667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 2.1333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 2.2,
+              "name": "Fire_8"
+            },
+            {
+              "time": 2.2667,
+              "name": "Fire_9"
+            },
+            {
+              "time": 2.3333,
+              "name": "Fire_1"
+            }
+          ]
+        },
+        "Fire_3_1": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.1333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.2,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.2667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.3333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.4,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.4667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.5333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.6,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.6667,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.7333,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.8,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.8667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.9333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.0667,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.1333,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.2,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.2667,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.3333,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.4,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.4667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.5333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.6,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.6667,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.7333,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.7667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.8333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.8667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.9333,
+              "name": "Fire_5"
+            },
+            {
+              "time": 2,
+              "name": "Fire_6"
+            },
+            {
+              "time": 2.0667,
+              "name": "Fire_7"
+            },
+            {
+              "time": 2.1333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 2.2,
+              "name": "Fire_9"
+            },
+            {
+              "time": 2.2667,
+              "name": "Fire_1"
+            }
+          ]
+        },
+        "smoke_1": {
+          "attachment": [
+            {
+              "time": 0.1,
+              "name": "smoke_2"
+            },
+            {
+              "time": 0.2333,
+              "name": "smoke_3"
+            },
+            {
+              "time": 0.3333,
+              "name": "smoke_4"
+            },
+            {
+              "time": 0.4,
+              "name": "smoke_5"
+            },
+            {
+              "time": 0.5333,
+              "name": "smoke_6"
+            },
+            {
+              "time": 0.6333,
+              "name": "smoke_7"
+            },
+            {
+              "time": 0.7333,
+              "name": "smoke_8"
+            },
+            {
+              "time": 0.8667,
+              "name": "smoke_9"
+            },
+            {
+              "time": 0.9667,
+              "name": "smoke_10"
+            },
+            {
+              "time": 1.0667,
+              "name": "smoke_11"
+            },
+            {
+              "time": 1.2,
+              "name": "smoke_12"
+            },
+            {
+              "time": 1.2667,
+              "name": "smoke_13"
+            },
+            {
+              "time": 1.3667,
+              "name": "smoke_14"
+            },
+            {
+              "time": 1.5,
+              "name": "smoke_15"
+            },
+            {
+              "time": 1.6,
+              "name": "smoke_16"
+            },
+            {
+              "time": 1.7,
+              "name": "smoke_17"
+            },
+            {
+              "time": 1.8333,
+              "name": "smoke_18"
+            },
+            {
+              "time": 1.9333,
+              "name": "smoke_19"
+            },
+            {
+              "time": 2.0333,
+              "name": "smoke_20"
+            },
+            {
+              "time": 2.1333,
+              "name": "smoke_21"
+            },
+            {
+              "time": 2.2333,
+              "name": "smoke_22"
+            },
+            {
+              "time": 2.3333,
+              "name": "smoke_1"
+            }
+          ]
+        }
+      },
+      "bones": {
+        "Fire_2_2": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -7.79
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_2_3": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -19.14
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_2_4": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -56.8
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_1_2": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -2.91
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_1_3": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -13.74
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_1_4": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -44.61
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_3_2": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -13.88
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_3_3": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -22.48
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_3_4": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -41.72
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ]
+        },
+        "cauldron_1": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 0.6667,
+              "angle": -4.02
+            },
+            {
+              "time": 1.3333,
+              "angle": -8.05
+            },
+            {
+              "time": 2,
+              "angle": -4.02
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ],
+          "scale": [
+            {
+              "time": 0.0,
+              "x": 1.0,
+              "y": 1.0
+            },
+            {
+              "time": 0.6667,
+              "x": 1.119,
+              "y": 0.882
+            },
+            {
+              "time": 1.3333,
+              "x": 1.0,
+              "y": 1.0
+            },
+            {
+              "time": 2,
+              "x": 1.119,
+              "y": 0.882
+            },
+            {
+              "time": 2.6667,
+              "x": 1.0,
+              "y": 1.0
+            }
+          ]
+        },
+        "smoke_1_1": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -10.11
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ]
+        },
+        "smoke_1_2": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -16.92
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ]
+        },
+        "smoke_1_3": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -33.79
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ]
+        }
+      }
+    },
+    "idle_2": {
+      "slots": {
+        "Fire_1_1": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.1,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.2,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.2667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.3333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.3667,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.4667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.5333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.6,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.6333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.7333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.8,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.8667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.9,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.0667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.1333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.1667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.2667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.3333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.4,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.4333,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.5333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.6,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.6667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.7,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.8,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.8667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.9333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.9667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 2.0667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 2.1333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 2.2,
+              "name": "Fire_7"
+            },
+            {
+              "time": 2.2333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 2.3333,
+              "name": "Fire_1"
+            }
+          ]
+        },
+        "Fire_2_1": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.1,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.2,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.2667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.3333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.3667,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.4667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.5333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.6,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.6333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.7333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.8,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.8667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.9,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.0667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.1333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.1667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.2667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.3333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.4,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.4333,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.5333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.6,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.6667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.7,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.8,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.8667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.9333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.9667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 2.0667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 2.1333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 2.2,
+              "name": "Fire_7"
+            },
+            {
+              "time": 2.2333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 2.3333,
+              "name": "Fire_1"
+            }
+          ]
+        },
+        "Fire_3_1": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.1,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.2,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.2667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.3333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.3667,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.4667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.5333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.6,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.6333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.7333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.8,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.8667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.9,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.0667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.1333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.1667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.2667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.3333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.4,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.4333,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.5333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.6,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.6667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.7,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.8,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.8667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.9333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.9667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 2.0667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 2.1333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 2.2,
+              "name": "Fire_7"
+            },
+            {
+              "time": 2.2333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 2.3333,
+              "name": "Fire_1"
+            }
+          ]
+        },
+        "smoke_1": {
+          "attachment": [
+            {
+              "time": 0.1,
+              "name": "smoke_2"
+            },
+            {
+              "time": 0.2333,
+              "name": "smoke_3"
+            },
+            {
+              "time": 0.3333,
+              "name": "smoke_4"
+            },
+            {
+              "time": 0.4333,
+              "name": "smoke_5"
+            },
+            {
+              "time": 0.5667,
+              "name": "smoke_6"
+            },
+            {
+              "time": 0.6333,
+              "name": "smoke_7"
+            },
+            {
+              "time": 0.7667,
+              "name": "smoke_8"
+            },
+            {
+              "time": 0.9,
+              "name": "smoke_9"
+            },
+            {
+              "time": 1,
+              "name": "smoke_10"
+            },
+            {
+              "time": 1.1,
+              "name": "smoke_11"
+            },
+            {
+              "time": 1.2333,
+              "name": "smoke_12"
+            },
+            {
+              "time": 1.3333,
+              "name": "smoke_13"
+            },
+            {
+              "time": 1.4333,
+              "name": "smoke_14"
+            },
+            {
+              "time": 1.5667,
+              "name": "smoke_15"
+            },
+            {
+              "time": 1.6667,
+              "name": "smoke_16"
+            },
+            {
+              "time": 1.7667,
+              "name": "smoke_17"
+            },
+            {
+              "time": 1.9,
+              "name": "smoke_18"
+            },
+            {
+              "time": 1.9667,
+              "name": "smoke_19"
+            },
+            {
+              "time": 2.1,
+              "name": "smoke_20"
+            },
+            {
+              "time": 2.2,
+              "name": "smoke_21"
+            },
+            {
+              "time": 2.3333,
+              "name": "smoke_1"
+            }
+          ]
+        }
+      },
+      "bones": {
+        "Fire_2_2": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -7.79
+            },
+            {
+              "time": 2.3333,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_2_3": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -19.14
+            },
+            {
+              "time": 2.3333,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_2_4": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -56.8
+            },
+            {
+              "time": 2.3333,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_1_2": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -2.91
+            },
+            {
+              "time": 2.3333,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_1_3": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -13.74
+            },
+            {
+              "time": 2.3333,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_1_4": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -44.61
+            },
+            {
+              "time": 2.3333,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_3_2": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -13.88
+            },
+            {
+              "time": 2.3333,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_3_3": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -22.48
+            },
+            {
+              "time": 2.3333,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_3_4": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -41.72
+            },
+            {
+              "time": 2.3333,
+              "angle": 0.0
+            }
+          ]
+        },
+        "smoke_1_1": {
+          "rotate": [
+            {
+              "angle": -2.26,
+              "time": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -7.93
+            },
+            {
+              "time": 2.3333,
+              "angle": -2.26
+            }
+          ]
+        },
+        "smoke_1_2": {
+          "rotate": [
+            {
+              "angle": -1.7,
+              "time": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -12.96
+            },
+            {
+              "time": 2.3333,
+              "angle": -1.7
+            }
+          ]
+        },
+        "smoke_1_3": {
+          "rotate": [
+            {
+              "angle": -0.98,
+              "time": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -25.03
+            },
+            {
+              "time": 2.3333,
+              "angle": -0.98
+            }
+          ]
+        },
+        "cauldron_1": {
+          "rotate": [
+            {
+              "angle": -1.31,
+              "time": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -4.9
+            },
+            {
+              "time": 2.3333,
+              "angle": -1.31
+            }
+          ],
+          "scale": [
+            {
+              "x": 1.089,
+              "y": 0.959,
+              "time": 0.0
+            }
+          ]
+        }
+      }
+    },
+    "idle_2_offset": {
+      "slots": {
+        "Fire_1_1": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.1,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.2,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.2667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.3333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.3667,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.4667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.5333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.6,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.6333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.7333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.8,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.8667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.9,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.0667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.1333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.1667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.2667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.3333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.4,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.4333,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.5333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.6,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.6667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.7,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.8,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.8667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.9333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.9667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 2.0667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 2.1333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 2.2,
+              "name": "Fire_7"
+            },
+            {
+              "time": 2.2333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 2.3333,
+              "name": "Fire_1"
+            }
+          ]
+        },
+        "Fire_2_1": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.1333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.2,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.2333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.3333,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.4,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.4333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.5333,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.6,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.6667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.7,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.8,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.8667,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.9333,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.9667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.0667,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.1333,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.2,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.2333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.3333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.4,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.4667,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.5,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.6,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.6667,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.7333,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.7667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.8667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.9333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 2,
+              "name": "Fire_8"
+            },
+            {
+              "time": 2.0333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 2.1333,
+              "name": "Fire_1"
+            },
+            {
+              "time": 2.2,
+              "name": "Fire_2"
+            },
+            {
+              "time": 2.2667,
+              "name": "Fire_3"
+            },
+            {
+              "time": 2.3,
+              "name": "Fire_4"
+            }
+          ]
+        },
+        "Fire_3_1": {
+          "attachment": [
+            {
+              "name": "Fire_8",
+              "time": 0.0
+            },
+            {
+              "time": 0.0333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.1333,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.2,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.2667,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.3,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.4,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.4667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.5333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.5667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.6667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.7333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.7667,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.8667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.9333,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.0333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.1333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.2,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.2667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.3,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.4,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.4667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.5333,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.5667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.6667,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.7333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.8,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.8333,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.9333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 2,
+              "name": "Fire_3"
+            },
+            {
+              "time": 2.0667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 2.1,
+              "name": "Fire_5"
+            },
+            {
+              "time": 2.2,
+              "name": "Fire_6"
+            },
+            {
+              "time": 2.2667,
+              "name": "Fire_7"
+            }
+          ]
+        },
+        "smoke_1": {
+          "attachment": [
+            {
+              "time": 0.0333,
+              "name": "smoke_21"
+            },
+            {
+              "time": 0.1667,
+              "name": "smoke_1"
+            },
+            {
+              "time": 0.2667,
+              "name": "smoke_2"
+            },
+            {
+              "time": 0.4,
+              "name": "smoke_3"
+            },
+            {
+              "time": 0.5,
+              "name": "smoke_4"
+            },
+            {
+              "time": 0.6,
+              "name": "smoke_5"
+            },
+            {
+              "time": 0.7333,
+              "name": "smoke_6"
+            },
+            {
+              "time": 0.8,
+              "name": "smoke_7"
+            },
+            {
+              "time": 0.9333,
+              "name": "smoke_8"
+            },
+            {
+              "time": 1.0667,
+              "name": "smoke_9"
+            },
+            {
+              "time": 1.1667,
+              "name": "smoke_10"
+            },
+            {
+              "time": 1.2667,
+              "name": "smoke_11"
+            },
+            {
+              "time": 1.4,
+              "name": "smoke_12"
+            },
+            {
+              "time": 1.5,
+              "name": "smoke_13"
+            },
+            {
+              "time": 1.6,
+              "name": "smoke_14"
+            },
+            {
+              "time": 1.7333,
+              "name": "smoke_15"
+            },
+            {
+              "time": 1.8333,
+              "name": "smoke_16"
+            },
+            {
+              "time": 1.9333,
+              "name": "smoke_17"
+            },
+            {
+              "time": 2.0667,
+              "name": "smoke_18"
+            },
+            {
+              "time": 2.1333,
+              "name": "smoke_19"
+            },
+            {
+              "time": 2.2667,
+              "name": "smoke_20"
+            }
+          ]
+        }
+      },
+      "bones": {
+        "Fire_2_2": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -7.79
+            },
+            {
+              "time": 2.3333,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_2_3": {
+          "rotate": [
+            {
+              "angle": -4.29,
+              "time": 0.0
+            },
+            {
+              "time": 0.3333,
+              "angle": 0.0
+            },
+            {
+              "time": 1.5,
+              "angle": -19.14
+            },
+            {
+              "time": 2.3333,
+              "angle": -4.29
+            }
+          ]
+        },
+        "Fire_2_4": {
+          "rotate": [
+            {
+              "angle": -33.76,
+              "time": 0.0
+            },
+            {
+              "time": 0.6667,
+              "angle": 0.0
+            },
+            {
+              "time": 1.8333,
+              "angle": -56.8
+            },
+            {
+              "time": 2.3333,
+              "angle": -33.76
+            }
+          ]
+        },
+        "Fire_1_2": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -2.91
+            },
+            {
+              "time": 2.3333,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_1_3": {
+          "rotate": [
+            {
+              "angle": -3.08,
+              "time": 0.0
+            },
+            {
+              "time": 0.3333,
+              "angle": 0.0
+            },
+            {
+              "time": 1.5,
+              "angle": -13.74
+            },
+            {
+              "time": 2.3333,
+              "angle": -3.08
+            }
+          ]
+        },
+        "Fire_1_4": {
+          "rotate": [
+            {
+              "angle": -26.52,
+              "time": 0.0
+            },
+            {
+              "time": 0.6667,
+              "angle": 0.0
+            },
+            {
+              "time": 1.8333,
+              "angle": -44.61
+            },
+            {
+              "time": 2.3333,
+              "angle": -26.52
+            }
+          ]
+        },
+        "Fire_3_2": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -13.88
+            },
+            {
+              "time": 2.3333,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_3_3": {
+          "rotate": [
+            {
+              "angle": -5.04,
+              "time": 0.0
+            },
+            {
+              "time": 0.3333,
+              "angle": 0.0
+            },
+            {
+              "time": 1.5,
+              "angle": -22.48
+            },
+            {
+              "time": 2.3333,
+              "angle": -5.04
+            }
+          ]
+        },
+        "Fire_3_4": {
+          "rotate": [
+            {
+              "angle": -24.8,
+              "time": 0.0
+            },
+            {
+              "time": 0.6667,
+              "angle": 0.0
+            },
+            {
+              "time": 1.8333,
+              "angle": -41.72
+            },
+            {
+              "time": 2.3333,
+              "angle": -24.8
+            }
+          ]
+        },
+        "smoke_1_1": {
+          "rotate": [
+            {
+              "angle": -2.7,
+              "time": 0.0
+            },
+            {
+              "time": 0.1667,
+              "angle": -2.26
+            },
+            {
+              "time": 1.3333,
+              "angle": -7.93
+            },
+            {
+              "time": 2.3333,
+              "angle": -2.7
+            }
+          ]
+        },
+        "smoke_1_2": {
+          "rotate": [
+            {
+              "angle": -4.23,
+              "time": 0.0
+            },
+            {
+              "time": 0.3333,
+              "angle": -1.7
+            },
+            {
+              "time": 1.5,
+              "angle": -12.96
+            },
+            {
+              "time": 2.3333,
+              "angle": -4.23
+            }
+          ]
+        },
+        "smoke_1_3": {
+          "rotate": [
+            {
+              "angle": -10.74,
+              "time": 0.0
+            },
+            {
+              "time": 0.5,
+              "angle": -0.98
+            },
+            {
+              "time": 1.6667,
+              "angle": -25.03
+            },
+            {
+              "time": 2.3333,
+              "angle": -10.74
+            }
+          ]
+        },
+        "cauldron_1": {
+          "rotate": [
+            {
+              "angle": -1.31,
+              "time": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -4.9
+            },
+            {
+              "time": 2.3333,
+              "angle": -1.31
+            }
+          ],
+          "scale": [
+            {
+              "x": 1.089,
+              "y": 0.959,
+              "time": 0.0
+            }
+          ]
+        }
+      }
+    },
+    "idle_2_offset_80_frame": {
+      "slots": {
+        "Fire_1_1": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.1,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.2333,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.3,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.3667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.4333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.5333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.6,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.7,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.7333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.8333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.9,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.0333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.1333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.2333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.3,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.3333,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.4333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.5333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.6,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.6333,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.7333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.8333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.9,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.9333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 2.0667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 2.1333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 2.2,
+              "name": "Fire_3"
+            },
+            {
+              "time": 2.2333,
+              "name": "Fire_4"
+            },
+            {
+              "time": 2.3667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 2.4333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 2.5,
+              "name": "Fire_7"
+            },
+            {
+              "time": 2.5333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 2.6667,
+              "name": "Fire_1"
+            }
+          ]
+        },
+        "Fire_2_1": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.1667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.2333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.2667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.3667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.4667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.5,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.6,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.7,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.7667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.8,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.9,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.0667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.1,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.2333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.3,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.3667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.4,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.5333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.6,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.6667,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.7,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.8333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.9,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.9667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 2,
+              "name": "Fire_5"
+            },
+            {
+              "time": 2.1333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 2.2,
+              "name": "Fire_7"
+            },
+            {
+              "time": 2.2667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 2.3333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 2.4333,
+              "name": "Fire_1"
+            },
+            {
+              "time": 2.5,
+              "name": "Fire_2"
+            },
+            {
+              "time": 2.6,
+              "name": "Fire_3"
+            },
+            {
+              "time": 2.6333,
+              "name": "Fire_4"
+            }
+          ]
+        },
+        "Fire_3_1": {
+          "attachment": [
+            {
+              "name": "Fire_8",
+              "time": 0.0
+            },
+            {
+              "time": 0.0333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.1667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.2333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.3,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.3333,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.4667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.5333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.6,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.6333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.7667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.8333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.8667,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.0667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.1333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.1667,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.3,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.3667,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.4333,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.5,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.6,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.6667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.7333,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.8,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.9,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.9667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 2.0667,
+              "name": "Fire_9"
+            },
+            {
+              "time": 2.1,
+              "name": "Fire_1"
+            },
+            {
+              "time": 2.2,
+              "name": "Fire_2"
+            },
+            {
+              "time": 2.2667,
+              "name": "Fire_3"
+            },
+            {
+              "time": 2.3667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 2.4,
+              "name": "Fire_5"
+            },
+            {
+              "time": 2.5,
+              "name": "Fire_6"
+            },
+            {
+              "time": 2.6,
+              "name": "Fire_7"
+            }
+          ]
+        },
+        "smoke_1": {
+          "attachment": [
+            {
+              "name": "smoke_18",
+              "time": 0.0
+            },
+            {
+              "time": 0.1,
+              "name": "smoke_19"
+            },
+            {
+              "time": 0.2333,
+              "name": "smoke_20"
+            },
+            {
+              "time": 0.3333,
+              "name": "smoke_21"
+            },
+            {
+              "time": 0.4667,
+              "name": "smoke_22"
+            },
+            {
+              "time": 0.5667,
+              "name": "smoke_1"
+            },
+            {
+              "time": 0.7,
+              "name": "smoke_2"
+            },
+            {
+              "time": 0.8333,
+              "name": "smoke_3"
+            },
+            {
+              "time": 0.9667,
+              "name": "smoke_4"
+            },
+            {
+              "time": 1.0333,
+              "name": "smoke_5"
+            },
+            {
+              "time": 1.1667,
+              "name": "smoke_6"
+            },
+            {
+              "time": 1.3,
+              "name": "smoke_7"
+            },
+            {
+              "time": 1.4,
+              "name": "smoke_8"
+            },
+            {
+              "time": 1.5667,
+              "name": "smoke_9"
+            },
+            {
+              "time": 1.6667,
+              "name": "smoke_10"
+            },
+            {
+              "time": 1.8,
+              "name": "smoke_11"
+            },
+            {
+              "time": 1.9333,
+              "name": "smoke_12"
+            },
+            {
+              "time": 2,
+              "name": "smoke_13"
+            },
+            {
+              "time": 2.1333,
+              "name": "smoke_14"
+            },
+            {
+              "time": 2.2667,
+              "name": "smoke_15"
+            },
+            {
+              "time": 2.4,
+              "name": "smoke_16"
+            },
+            {
+              "time": 2.5,
+              "name": "smoke_17"
+            }
+          ]
+        }
+      },
+      "bones": {
+        "Fire_2_2": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -7.79
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_2_3": {
+          "rotate": [
+            {
+              "angle": -4.29,
+              "time": 0.0
+            },
+            {
+              "time": 0.3667,
+              "angle": 0.0
+            },
+            {
+              "time": 1.7,
+              "angle": -19.14
+            },
+            {
+              "time": 2.6667,
+              "angle": -4.29
+            }
+          ]
+        },
+        "Fire_2_4": {
+          "rotate": [
+            {
+              "angle": -33.76,
+              "time": 0.0
+            },
+            {
+              "time": 0.7667,
+              "angle": 0.0
+            },
+            {
+              "time": 2.1,
+              "angle": -56.8
+            },
+            {
+              "time": 2.6667,
+              "angle": -33.76
+            }
+          ]
+        },
+        "Fire_1_2": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -2.91
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_1_3": {
+          "rotate": [
+            {
+              "angle": -3.08,
+              "time": 0.0
+            },
+            {
+              "time": 0.3667,
+              "angle": 0.0
+            },
+            {
+              "time": 1.7,
+              "angle": -13.74
+            },
+            {
+              "time": 2.6667,
+              "angle": -3.08
+            }
+          ]
+        },
+        "Fire_1_4": {
+          "rotate": [
+            {
+              "angle": -26.52,
+              "time": 0.0
+            },
+            {
+              "time": 0.7667,
+              "angle": 0.0
+            },
+            {
+              "time": 2.1,
+              "angle": -44.61
+            },
+            {
+              "time": 2.6667,
+              "angle": -26.52
+            }
+          ]
+        },
+        "Fire_3_2": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -13.88
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_3_3": {
+          "rotate": [
+            {
+              "angle": -5.04,
+              "time": 0.0
+            },
+            {
+              "time": 0.3667,
+              "angle": 0.0
+            },
+            {
+              "time": 1.7,
+              "angle": -22.48
+            },
+            {
+              "time": 2.6667,
+              "angle": -5.04
+            }
+          ]
+        },
+        "Fire_3_4": {
+          "rotate": [
+            {
+              "angle": -24.8,
+              "time": 0.0
+            },
+            {
+              "time": 0.7667,
+              "angle": 0.0
+            },
+            {
+              "time": 2.1,
+              "angle": -41.72
+            },
+            {
+              "time": 2.6667,
+              "angle": -24.8
+            }
+          ]
+        },
+        "smoke_1_1": {
+          "rotate": [
+            {
+              "angle": -2.7,
+              "time": 0.0
+            },
+            {
+              "time": 0.2,
+              "angle": -2.26
+            },
+            {
+              "time": 1.5333,
+              "angle": -7.93
+            },
+            {
+              "time": 2.6667,
+              "angle": -2.7
+            }
+          ]
+        },
+        "smoke_1_2": {
+          "rotate": [
+            {
+              "angle": -4.23,
+              "time": 0.0
+            },
+            {
+              "time": 0.3667,
+              "angle": -1.7
+            },
+            {
+              "time": 1.7,
+              "angle": -12.96
+            },
+            {
+              "time": 2.6667,
+              "angle": -4.23
+            }
+          ]
+        },
+        "smoke_1_3": {
+          "rotate": [
+            {
+              "angle": -10.74,
+              "time": 0.0
+            },
+            {
+              "time": 0.5667,
+              "angle": -0.98
+            },
+            {
+              "time": 1.9,
+              "angle": -25.03
+            },
+            {
+              "time": 2.6667,
+              "angle": -10.74
+            }
+          ]
+        },
+        "cauldron_1": {
+          "rotate": [
+            {
+              "angle": -2.85,
+              "time": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -4.47
+            },
+            {
+              "time": 2.6667,
+              "angle": -2.85
+            }
+          ],
+          "scale": [
+            {
+              "x": 1.089,
+              "y": 0.959,
+              "time": 0.0
+            }
+          ]
+        },
+        "firewood_3": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -0.8
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ],
+          "translate": [
+            {
+              "time": 0.0
+            },
+            {
+              "time": 1.3333,
+              "y": 5.98
+            },
+            {
+              "time": 2.6667
+            }
+          ]
+        },
+        "firewood_1": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -0.8
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ],
+          "translate": [
+            {
+              "time": 0.0
+            },
+            {
+              "time": 1.3333,
+              "y": 3.42
+            },
+            {
+              "time": 2.6667
+            }
+          ]
+        }
+      }
+    },
+    "idle_offset": {
+      "slots": {
+        "Fire_1_1": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.1333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.2,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.2667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.3333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.4,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.4667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.5333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.6,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.6333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.7,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.7667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.8333,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.9,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.9667,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.0333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.1,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.1667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.2333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.3,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.3667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.4333,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.5,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.5667,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.6333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.7,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.7667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.8333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.8667,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.9333,
+              "name": "Fire_4"
+            },
+            {
+              "time": 2,
+              "name": "Fire_5"
+            },
+            {
+              "time": 2.0667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 2.1333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 2.2,
+              "name": "Fire_8"
+            },
+            {
+              "time": 2.2667,
+              "name": "Fire_9"
+            },
+            {
+              "time": 2.3333,
+              "name": "Fire_1"
+            }
+          ]
+        },
+        "Fire_2_1": {
+          "attachment": [
+            {
+              "name": "Fire_5",
+              "time": 0.0
+            },
+            {
+              "time": 0.0667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.1333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.2,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.2667,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.3333,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.4,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.4667,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.5333,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.6,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.6667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.7333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.8,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.8667,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.9333,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.9667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.0333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.1,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.1667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.2333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.3,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.3667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.4333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.5,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.5667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.6333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.7,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.7667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.8333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.9,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.9667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 2.0333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 2.1,
+              "name": "Fire_1"
+            },
+            {
+              "time": 2.1667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 2.2,
+              "name": "Fire_3"
+            },
+            {
+              "time": 2.2667,
+              "name": "Fire_4"
+            }
+          ]
+        },
+        "Fire_3_1": {
+          "attachment": [
+            {
+              "time": 0.0333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.1,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.1333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.2,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.2667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.3333,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.4,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.4667,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.5333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.6,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.6667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.7333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.8,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.8667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.9333,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.0667,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.1333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.2,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.2667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.3,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.3667,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.4333,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.5,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.5667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.6333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.7,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.7667,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.8333,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.9,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.9667,
+              "name": "Fire_3"
+            },
+            {
+              "time": 2.0333,
+              "name": "Fire_4"
+            },
+            {
+              "time": 2.1,
+              "name": "Fire_5"
+            },
+            {
+              "time": 2.1667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 2.2333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 2.3,
+              "name": "Fire_8"
+            }
+          ]
+        },
+        "smoke_1": {
+          "attachment": [
+            {
+              "name": "smoke_18",
+              "time": 0.0
+            },
+            {
+              "time": 0.1,
+              "name": "smoke_19"
+            },
+            {
+              "time": 0.2,
+              "name": "smoke_20"
+            },
+            {
+              "time": 0.3,
+              "name": "smoke_21"
+            },
+            {
+              "time": 0.4,
+              "name": "smoke_22"
+            },
+            {
+              "time": 0.5,
+              "name": "smoke_1"
+            },
+            {
+              "time": 0.6,
+              "name": "smoke_2"
+            },
+            {
+              "time": 0.7333,
+              "name": "smoke_3"
+            },
+            {
+              "time": 0.8333,
+              "name": "smoke_4"
+            },
+            {
+              "time": 0.9,
+              "name": "smoke_5"
+            },
+            {
+              "time": 1.0333,
+              "name": "smoke_6"
+            },
+            {
+              "time": 1.1333,
+              "name": "smoke_7"
+            },
+            {
+              "time": 1.2333,
+              "name": "smoke_8"
+            },
+            {
+              "time": 1.3667,
+              "name": "smoke_9"
+            },
+            {
+              "time": 1.4667,
+              "name": "smoke_10"
+            },
+            {
+              "time": 1.5667,
+              "name": "smoke_11"
+            },
+            {
+              "time": 1.7,
+              "name": "smoke_12"
+            },
+            {
+              "time": 1.7667,
+              "name": "smoke_13"
+            },
+            {
+              "time": 1.8667,
+              "name": "smoke_14"
+            },
+            {
+              "time": 2,
+              "name": "smoke_15"
+            },
+            {
+              "time": 2.1,
+              "name": "smoke_16"
+            },
+            {
+              "time": 2.2,
+              "name": "smoke_17"
+            }
+          ]
+        }
+      },
+      "bones": {
+        "Fire_2_2": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -7.79
+            },
+            {
+              "time": 2.3333,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_2_3": {
+          "rotate": [
+            {
+              "angle": -1.04,
+              "time": 0.0
+            },
+            {
+              "time": 0.1333,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3,
+              "angle": -19.14
+            },
+            {
+              "time": 2.3333,
+              "angle": -1.04
+            }
+          ]
+        },
+        "Fire_2_4": {
+          "rotate": [
+            {
+              "angle": -9.15,
+              "time": 0.0
+            },
+            {
+              "time": 0.2667,
+              "angle": 0.0
+            },
+            {
+              "time": 1.4333,
+              "angle": -56.8
+            },
+            {
+              "time": 2.3333,
+              "angle": -9.15
+            }
+          ]
+        },
+        "Fire_1_2": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -2.91
+            },
+            {
+              "time": 2.3333,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_1_3": {
+          "rotate": [
+            {
+              "angle": -0.74,
+              "time": 0.0
+            },
+            {
+              "time": 0.1333,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3,
+              "angle": -13.74
+            },
+            {
+              "time": 2.3333,
+              "angle": -0.74
+            }
+          ]
+        },
+        "Fire_1_4": {
+          "rotate": [
+            {
+              "angle": -7.19,
+              "time": 0.0
+            },
+            {
+              "time": 0.2667,
+              "angle": 0.0
+            },
+            {
+              "time": 1.4333,
+              "angle": -44.61
+            },
+            {
+              "time": 2.3333,
+              "angle": -7.19
+            }
+          ]
+        },
+        "Fire_3_2": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.1667,
+              "angle": -13.88
+            },
+            {
+              "time": 2.3333,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_3_3": {
+          "rotate": [
+            {
+              "angle": -1.22,
+              "time": 0.0
+            },
+            {
+              "time": 0.1333,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3,
+              "angle": -22.48
+            },
+            {
+              "time": 2.3333,
+              "angle": -1.22
+            }
+          ]
+        },
+        "Fire_3_4": {
+          "rotate": [
+            {
+              "angle": -6.72,
+              "time": 0.0
+            },
+            {
+              "time": 0.2667,
+              "angle": 0.0
+            },
+            {
+              "time": 1.4333,
+              "angle": -41.72
+            },
+            {
+              "time": 2.3333,
+              "angle": -6.72
+            }
+          ]
+        },
+        "cauldron_1": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 0.5667,
+              "angle": -4.02
+            },
+            {
+              "time": 1.1667,
+              "angle": -8.05
+            },
+            {
+              "time": 1.7333,
+              "angle": -4.02
+            },
+            {
+              "time": 2.3333,
+              "angle": 0.0
+            }
+          ],
+          "scale": [
+            {
+              "time": 0.0,
+              "x": 1.0,
+              "y": 1.0
+            },
+            {
+              "time": 0.5667,
+              "x": 1.119,
+              "y": 0.882
+            },
+            {
+              "time": 1.1667,
+              "x": 1.0,
+              "y": 1.0
+            },
+            {
+              "time": 1.7333,
+              "x": 1.119,
+              "y": 0.882
+            },
+            {
+              "time": 2.3333,
+              "x": 1.0,
+              "y": 1.0
+            }
+          ]
+        },
+        "smoke_1_1": {
+          "rotate": [
+            {
+              "angle": -0.99,
+              "time": 0.0
+            },
+            {
+              "time": 0.1667,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -12.86
+            },
+            {
+              "time": 2.3333,
+              "angle": -0.99
+            }
+          ]
+        },
+        "smoke_1_2": {
+          "rotate": [
+            {
+              "angle": -0.61,
+              "time": 0.0
+            },
+            {
+              "time": 0.3333,
+              "angle": 8.28
+            },
+            {
+              "time": 1.5,
+              "angle": -31.36
+            },
+            {
+              "time": 2.3333,
+              "angle": -0.61
+            }
+          ]
+        },
+        "smoke_1_3": {
+          "rotate": [
+            {
+              "angle": -13.78,
+              "time": 0.0
+            },
+            {
+              "time": 0.5,
+              "angle": 16.24
+            },
+            {
+              "time": 1.6667,
+              "angle": -57.78
+            },
+            {
+              "time": 2.3333,
+              "angle": -13.78
+            }
+          ]
+        }
+      }
+    },
+    "idle_offset_80_frame": {
+      "slots": {
+        "Fire_1_1": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.1667,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.2333,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.3,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.3667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.4667,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.5333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.6,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.7,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.7333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.8,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.8667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.9667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.0333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.1,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.1667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.2667,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.3333,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.4,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.5,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.5667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.6333,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.7,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.8,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.8667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.9333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 2,
+              "name": "Fire_1"
+            },
+            {
+              "time": 2.1,
+              "name": "Fire_2"
+            },
+            {
+              "time": 2.1333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 2.2,
+              "name": "Fire_4"
+            },
+            {
+              "time": 2.2667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 2.3667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 2.4333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 2.5,
+              "name": "Fire_8"
+            },
+            {
+              "time": 2.6,
+              "name": "Fire_9"
+            },
+            {
+              "time": 2.6667,
+              "name": "Fire_1"
+            }
+          ]
+        },
+        "Fire_2_1": {
+          "attachment": [
+            {
+              "name": "Fire_5",
+              "time": 0.0
+            },
+            {
+              "time": 0.0667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.1667,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.2333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.3,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.3667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.4667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.5333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.6,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.7,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.7667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.8333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.9,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.0667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.1,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.1667,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.2667,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.3333,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.4,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.5,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.5667,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.6333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.7,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.8,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.8667,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.9333,
+              "name": "Fire_4"
+            },
+            {
+              "time": 2,
+              "name": "Fire_5"
+            },
+            {
+              "time": 2.1,
+              "name": "Fire_6"
+            },
+            {
+              "time": 2.1667,
+              "name": "Fire_7"
+            },
+            {
+              "time": 2.2333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 2.3333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 2.4,
+              "name": "Fire_1"
+            },
+            {
+              "time": 2.4667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 2.5,
+              "name": "Fire_3"
+            },
+            {
+              "time": 2.6,
+              "name": "Fire_4"
+            }
+          ]
+        },
+        "Fire_3_1": {
+          "attachment": [
+            {
+              "time": 0.0333,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.1,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.1667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.2333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 0.3,
+              "name": "Fire_4"
+            },
+            {
+              "time": 0.3667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 0.4667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 0.5333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 0.6,
+              "name": "Fire_8"
+            },
+            {
+              "time": 0.7,
+              "name": "Fire_9"
+            },
+            {
+              "time": 0.7667,
+              "name": "Fire_1"
+            },
+            {
+              "time": 0.8333,
+              "name": "Fire_2"
+            },
+            {
+              "time": 0.9,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.0667,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.1333,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.2333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.3,
+              "name": "Fire_8"
+            },
+            {
+              "time": 1.3667,
+              "name": "Fire_9"
+            },
+            {
+              "time": 1.4333,
+              "name": "Fire_1"
+            },
+            {
+              "time": 1.5,
+              "name": "Fire_2"
+            },
+            {
+              "time": 1.5667,
+              "name": "Fire_3"
+            },
+            {
+              "time": 1.6333,
+              "name": "Fire_4"
+            },
+            {
+              "time": 1.7,
+              "name": "Fire_5"
+            },
+            {
+              "time": 1.8,
+              "name": "Fire_6"
+            },
+            {
+              "time": 1.8667,
+              "name": "Fire_7"
+            },
+            {
+              "time": 1.9333,
+              "name": "Fire_8"
+            },
+            {
+              "time": 2,
+              "name": "Fire_9"
+            },
+            {
+              "time": 2.1,
+              "name": "Fire_1"
+            },
+            {
+              "time": 2.1667,
+              "name": "Fire_2"
+            },
+            {
+              "time": 2.2333,
+              "name": "Fire_3"
+            },
+            {
+              "time": 2.3333,
+              "name": "Fire_4"
+            },
+            {
+              "time": 2.4,
+              "name": "Fire_5"
+            },
+            {
+              "time": 2.4667,
+              "name": "Fire_6"
+            },
+            {
+              "time": 2.5333,
+              "name": "Fire_7"
+            },
+            {
+              "time": 2.6333,
+              "name": "Fire_8"
+            }
+          ]
+        },
+        "smoke_1": {
+          "attachment": [
+            {
+              "name": "smoke_18",
+              "time": 0.0
+            },
+            {
+              "time": 0.1,
+              "name": "smoke_19"
+            },
+            {
+              "time": 0.2333,
+              "name": "smoke_20"
+            },
+            {
+              "time": 0.3333,
+              "name": "smoke_21"
+            },
+            {
+              "time": 0.4667,
+              "name": "smoke_22"
+            },
+            {
+              "time": 0.5667,
+              "name": "smoke_1"
+            },
+            {
+              "time": 0.7,
+              "name": "smoke_2"
+            },
+            {
+              "time": 0.8333,
+              "name": "smoke_3"
+            },
+            {
+              "time": 0.9667,
+              "name": "smoke_4"
+            },
+            {
+              "time": 1.0333,
+              "name": "smoke_5"
+            },
+            {
+              "time": 1.1667,
+              "name": "smoke_6"
+            },
+            {
+              "time": 1.3,
+              "name": "smoke_7"
+            },
+            {
+              "time": 1.4,
+              "name": "smoke_8"
+            },
+            {
+              "time": 1.5667,
+              "name": "smoke_9"
+            },
+            {
+              "time": 1.6667,
+              "name": "smoke_10"
+            },
+            {
+              "time": 1.8,
+              "name": "smoke_11"
+            },
+            {
+              "time": 1.9333,
+              "name": "smoke_12"
+            },
+            {
+              "time": 2,
+              "name": "smoke_13"
+            },
+            {
+              "time": 2.1333,
+              "name": "smoke_14"
+            },
+            {
+              "time": 2.2667,
+              "name": "smoke_15"
+            },
+            {
+              "time": 2.4,
+              "name": "smoke_16"
+            },
+            {
+              "time": 2.5,
+              "name": "smoke_17"
+            }
+          ]
+        }
+      },
+      "bones": {
+        "Fire_2_2": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -7.79
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_2_3": {
+          "rotate": [
+            {
+              "angle": -1.04,
+              "time": 0.0
+            },
+            {
+              "time": 0.1667,
+              "angle": 0.0
+            },
+            {
+              "time": 1.5,
+              "angle": -19.14
+            },
+            {
+              "time": 2.6667,
+              "angle": -1.04
+            }
+          ]
+        },
+        "Fire_2_4": {
+          "rotate": [
+            {
+              "angle": -9.15,
+              "time": 0.0
+            },
+            {
+              "time": 0.3,
+              "angle": 0.0
+            },
+            {
+              "time": 1.6333,
+              "angle": -56.8
+            },
+            {
+              "time": 2.6667,
+              "angle": -9.15
+            }
+          ]
+        },
+        "Fire_1_2": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -2.91
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_1_3": {
+          "rotate": [
+            {
+              "angle": -0.74,
+              "time": 0.0
+            },
+            {
+              "time": 0.1667,
+              "angle": 0.0
+            },
+            {
+              "time": 1.5,
+              "angle": -13.74
+            },
+            {
+              "time": 2.6667,
+              "angle": -0.74
+            }
+          ]
+        },
+        "Fire_1_4": {
+          "rotate": [
+            {
+              "angle": -7.19,
+              "time": 0.0
+            },
+            {
+              "time": 0.3,
+              "angle": 0.0
+            },
+            {
+              "time": 1.6333,
+              "angle": -44.61
+            },
+            {
+              "time": 2.6667,
+              "angle": -7.19
+            }
+          ]
+        },
+        "Fire_3_2": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 1.3333,
+              "angle": -13.88
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ]
+        },
+        "Fire_3_3": {
+          "rotate": [
+            {
+              "angle": -1.22,
+              "time": 0.0
+            },
+            {
+              "time": 0.1667,
+              "angle": 0.0
+            },
+            {
+              "time": 1.5,
+              "angle": -22.48
+            },
+            {
+              "time": 2.6667,
+              "angle": -1.22
+            }
+          ]
+        },
+        "Fire_3_4": {
+          "rotate": [
+            {
+              "angle": -6.72,
+              "time": 0.0
+            },
+            {
+              "time": 0.3,
+              "angle": 0.0
+            },
+            {
+              "time": 1.6333,
+              "angle": -41.72
+            },
+            {
+              "time": 2.6667,
+              "angle": -6.72
+            }
+          ]
+        },
+        "cauldron_1": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0
+            },
+            {
+              "time": 0.6333,
+              "angle": -4.02
+            },
+            {
+              "time": 1.3333,
+              "angle": -8.05
+            },
+            {
+              "time": 1.9667,
+              "angle": -4.02
+            },
+            {
+              "time": 2.6667,
+              "angle": 0.0
+            }
+          ],
+          "scale": [
+            {
+              "time": 0.0,
+              "x": 1.0,
+              "y": 1.0
+            },
+            {
+              "time": 0.6333,
+              "x": 1.119,
+              "y": 0.882
+            },
+            {
+              "time": 1.3333,
+              "x": 1.0,
+              "y": 1.0
+            },
+            {
+              "time": 1.9667,
+              "x": 1.119,
+              "y": 0.882
+            },
+            {
+              "time": 2.6667,
+              "x": 1.0,
+              "y": 1.0
+            }
+          ]
+        },
+        "smoke_1_1": {
+          "rotate": [
+            {
+              "angle": -0.99,
+              "time": 0.0
+            },
+            {
+              "time": 0.2,
+              "angle": 0.0
+            },
+            {
+              "time": 1.5333,
+              "angle": -12.86
+            },
+            {
+              "time": 2.6667,
+              "angle": -0.99
+            }
+          ]
+        },
+        "smoke_1_2": {
+          "rotate": [
+            {
+              "angle": -0.61,
+              "time": 0.0
+            },
+            {
+              "time": 0.3667,
+              "angle": 8.28
+            },
+            {
+              "time": 1.7,
+              "angle": -31.36
+            },
+            {
+              "time": 2.6667,
+              "angle": -0.61
+            }
+          ]
+        },
+        "smoke_1_3": {
+          "rotate": [
+            {
+              "angle": -13.78,
+              "time": 0.0
+            },
+            {
+              "time": 0.5667,
+              "angle": 16.24
+            },
+            {
+              "time": 1.9,
+              "angle": -57.78
+            },
+            {
+              "time": 2.6667,
+              "angle": -13.78
+            }
+          ]
+        }
+      }
+    }
+  },
+  "skins": {
+    "default": {
+      "cauldron_1": {
+        "cauldron_1": {
+          "x": 340.18,
+          "y": 19.1,
+          "rotation": -89.5,
+          "width": 1080,
+          "height": 810
+        }
+      },
+      "cauldron_2": {
+        "cauldron_2": {
+          "x": 712.09,
+          "y": 6.16,
+          "rotation": -89.5,
+          "width": 870,
+          "height": 146
+        }
+      },
+      "cauldron_shadow": {
+        "cauldron_shadow": {
+          "x": 568.22,
+          "y": 513.31,
+          "width": 1811,
+          "height": 504
+        }
+      },
+      "firewood_1": {
+        "firewood_1": {
+          "x": -120.27,
+          "y": 46.34,
+          "rotation": -90.14,
+          "width": 679,
+          "height": 217
+        }
+      },
+      "firewood_2": {
+        "firewood_2": {
+          "x": 25.17,
+          "y": 89.22,
+          "rotation": 2.96,
+          "width": 895,
+          "height": 297
+        }
+      },
+      "Fire_1_1": {
+        "Fire_1": {
+          "type": "mesh",
+          "uvs": [
+            1,
+            0.90927,
+            0,
+            0.90927,
+            0,
+            0.75,
+            0,
+            0.5,
+            0,
+            0.25,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0.25,
+            1,
+            0.5,
+            1,
+            0.75
+          ],
+          "triangles": [
+            4,
+            6,
+            7,
+            3,
+            4,
+            7,
+            3,
+            7,
+            8,
+            4,
+            5,
+            6,
+            2,
+            3,
+            8,
+            2,
+            8,
+            9,
+            2,
+            9,
+            0,
+            1,
+            2,
+            0
+          ],
+          "vertices": [
+            3,
+            6,
+            5.4,
+            -167.81,
+            0.50557,
+            7,
+            -196.41,
+            -167.81,
+            0.49089,
+            8,
+            -330.95,
+            -167.81,
+            0.00354,
+            2,
+            6,
+            4.3,
+            173.19,
+            0.86893,
+            7,
+            -197.51,
+            173.19,
+            0.13107,
+            3,
+            6,
+            84.09,
+            173.45,
+            0.81431,
+            7,
+            -117.72,
+            173.45,
+            0.18375,
+            8,
+            -252.26,
+            173.45,
+            0.00194,
+            3,
+            6,
+            209.34,
+            173.85,
+            0.54419,
+            7,
+            7.53,
+            173.85,
+            0.41051,
+            8,
+            -127.01,
+            173.85,
+            0.04531,
+            3,
+            6,
+            334.59,
+            174.26,
+            0.23437,
+            7,
+            132.78,
+            174.26,
+            0.58196,
+            8,
+            -1.76,
+            174.26,
+            0.18368,
+            3,
+            6,
+            459.84,
+            174.66,
+            0.11044,
+            7,
+            258.03,
+            174.66,
+            0.59984,
+            8,
+            123.49,
+            174.66,
+            0.28972,
+            3,
+            6,
+            460.94,
+            -166.34,
+            2.0E-5,
+            7,
+            259.13,
+            -166.34,
+            0.46897,
+            8,
+            124.59,
+            -166.34,
+            0.53102,
+            3,
+            6,
+            335.69,
+            -166.74,
+            0.03835,
+            7,
+            133.88,
+            -166.74,
+            0.57252,
+            8,
+            -0.66,
+            -166.74,
+            0.38913,
+            3,
+            6,
+            210.44,
+            -167.14,
+            0.21022,
+            7,
+            8.63,
+            -167.14,
+            0.64097,
+            8,
+            -125.91,
+            -167.14,
+            0.14881,
+            3,
+            6,
+            85.19,
+            -167.55,
+            0.44496,
+            7,
+            -116.62,
+            -167.55,
+            0.53251,
+            8,
+            -251.16,
+            -167.55,
+            0.02253
+          ],
+          "hull": 10,
+          "edges": [
+            2,
+            4,
+            4,
+            6,
+            6,
+            8,
+            8,
+            10,
+            12,
+            14,
+            14,
+            16,
+            16,
+            18,
+            18,
+            0,
+            0,
+            2,
+            10,
+            12
+          ],
+          "width": 341,
+          "height": 501
+        },
+        "Fire_2": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_3": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_4": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_5": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_6": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_7": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_8": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_9": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        }
+      },
+      "Fire_2_1": {
+        "Fire_1": {
+          "type": "mesh",
+          "uvs": [
+            1,
+            0.90927,
+            0,
+            0.90927,
+            0,
+            0.75,
+            0,
+            0.5,
+            0,
+            0.25,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0.25,
+            1,
+            0.5,
+            1,
+            0.75
+          ],
+          "triangles": [
+            4,
+            6,
+            7,
+            3,
+            4,
+            7,
+            4,
+            5,
+            6,
+            3,
+            7,
+            8,
+            2,
+            3,
+            8,
+            2,
+            8,
+            9,
+            2,
+            9,
+            0,
+            1,
+            2,
+            0
+          ],
+          "vertices": [
+            3,
+            2,
+            5.4,
+            -167.81,
+            0.64669,
+            3,
+            -196.41,
+            -167.81,
+            0.31586,
+            4,
+            -330.95,
+            -167.81,
+            0.03745,
+            3,
+            2,
+            4.3,
+            173.19,
+            0.7423,
+            3,
+            -197.51,
+            173.19,
+            0.21286,
+            4,
+            -332.05,
+            173.19,
+            0.04484,
+            3,
+            2,
+            84.09,
+            173.45,
+            0.68081,
+            3,
+            -117.72,
+            173.45,
+            0.24398,
+            4,
+            -252.26,
+            173.45,
+            0.07521,
+            3,
+            2,
+            209.34,
+            173.85,
+            0.41939,
+            3,
+            7.53,
+            173.85,
+            0.33807,
+            4,
+            -127.01,
+            173.85,
+            0.24254,
+            3,
+            2,
+            334.59,
+            174.26,
+            0.1518,
+            3,
+            132.78,
+            174.26,
+            0.32817,
+            4,
+            -1.76,
+            174.26,
+            0.52003,
+            3,
+            2,
+            459.84,
+            174.66,
+            0.05021,
+            3,
+            258.03,
+            174.66,
+            0.27614,
+            4,
+            123.49,
+            174.66,
+            0.67366,
+            3,
+            2,
+            460.94,
+            -166.34,
+            5.9E-4,
+            3,
+            259.13,
+            -166.34,
+            0.45461,
+            4,
+            124.59,
+            -166.34,
+            0.5448,
+            3,
+            2,
+            335.69,
+            -166.74,
+            0.05332,
+            3,
+            133.88,
+            -166.74,
+            0.51662,
+            4,
+            -0.66,
+            -166.74,
+            0.43006,
+            3,
+            2,
+            210.44,
+            -167.14,
+            0.27474,
+            3,
+            8.63,
+            -167.14,
+            0.51409,
+            4,
+            -125.91,
+            -167.14,
+            0.21116,
+            3,
+            2,
+            85.19,
+            -167.55,
+            0.57117,
+            3,
+            -116.62,
+            -167.55,
+            0.36427,
+            4,
+            -251.16,
+            -167.55,
+            0.06456
+          ],
+          "hull": 10,
+          "edges": [
+            2,
+            4,
+            4,
+            6,
+            6,
+            8,
+            8,
+            10,
+            12,
+            14,
+            14,
+            16,
+            16,
+            18,
+            18,
+            0,
+            0,
+            2,
+            10,
+            12
+          ],
+          "width": 341,
+          "height": 501
+        },
+        "Fire_2": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_3": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_4": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_5": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_6": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_7": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_8": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_9": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        }
+      },
+      "Fire_3_1": {
+        "Fire_1": {
+          "type": "mesh",
+          "uvs": [
+            1,
+            0.90927,
+            0,
+            0.90927,
+            0,
+            0.75,
+            0,
+            0.5,
+            0,
+            0.25,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0.25,
+            1,
+            0.5,
+            1,
+            0.75
+          ],
+          "triangles": [
+            4,
+            6,
+            7,
+            4,
+            5,
+            6,
+            2,
+            3,
+            8,
+            2,
+            8,
+            9,
+            2,
+            9,
+            0,
+            1,
+            2,
+            0,
+            3,
+            4,
+            7,
+            3,
+            7,
+            8
+          ],
+          "vertices": [
+            3,
+            10,
+            5.4,
+            -167.81,
+            0.97969,
+            11,
+            -196.41,
+            -167.81,
+            0.01085,
+            12,
+            -330.95,
+            -167.81,
+            0.00946,
+            3,
+            10,
+            4.3,
+            173.19,
+            0.96888,
+            11,
+            -197.51,
+            173.19,
+            0.03112,
+            12,
+            -332.05,
+            173.19,
+            0,
+            3,
+            10,
+            84.09,
+            173.45,
+            0.92471,
+            11,
+            -117.72,
+            173.45,
+            0.06661,
+            12,
+            -252.26,
+            173.45,
+            0.00868,
+            3,
+            10,
+            209.34,
+            173.85,
+            0.69044,
+            11,
+            7.53,
+            173.85,
+            0.22864,
+            12,
+            -127.01,
+            173.85,
+            0.08091,
+            3,
+            10,
+            334.59,
+            174.26,
+            0.39036,
+            11,
+            132.78,
+            174.26,
+            0.36762,
+            12,
+            -1.76,
+            174.26,
+            0.24202,
+            3,
+            10,
+            459.84,
+            174.66,
+            0.26013,
+            11,
+            258.03,
+            174.66,
+            0.39232,
+            12,
+            123.49,
+            174.66,
+            0.34756,
+            3,
+            10,
+            460.94,
+            -166.34,
+            0.18548,
+            11,
+            259.13,
+            -166.34,
+            0.19191,
+            12,
+            124.59,
+            -166.34,
+            0.62261,
+            3,
+            10,
+            335.69,
+            -166.74,
+            0.3282,
+            11,
+            133.88,
+            -166.74,
+            0.21396,
+            12,
+            -0.66,
+            -166.74,
+            0.45784,
+            3,
+            10,
+            210.44,
+            -167.14,
+            0.65816,
+            11,
+            8.63,
+            -167.14,
+            0.16026,
+            12,
+            -125.91,
+            -167.14,
+            0.18158,
+            3,
+            10,
+            85.19,
+            -167.55,
+            0.9283,
+            11,
+            -116.62,
+            -167.55,
+            0.03882,
+            12,
+            -251.16,
+            -167.55,
+            0.03287
+          ],
+          "hull": 10,
+          "edges": [
+            2,
+            4,
+            4,
+            6,
+            6,
+            8,
+            8,
+            10,
+            12,
+            14,
+            14,
+            16,
+            16,
+            18,
+            18,
+            0,
+            0,
+            2,
+            10,
+            12
+          ],
+          "width": 341,
+          "height": 501
+        },
+        "Fire_2": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_3": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_4": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_5": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_6": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_7": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_8": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        },
+        "Fire_9": {
+          "type": "linkedmesh",
+          "parent": "Fire_1",
+          "width": 341,
+          "height": 501
+        }
+      },
+      "fire_light": {
+        "fire_light": {
+          "x": 512.72,
+          "y": 688.81,
+          "width": 1314,
+          "height": 773
+        }
+      },
+      "smoke_1": {
+        "smoke_1": {
+          "type": "mesh",
+          "uvs": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            0.83333,
+            0,
+            0.66667,
+            0,
+            0.5,
+            0,
+            0.33333,
+            0,
+            0.16667,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0.16667,
+            1,
+            0.33333,
+            1,
+            0.5,
+            1,
+            0.66667,
+            1,
+            0.83333
+          ],
+          "triangles": [
+            5,
+            9,
+            10,
+            5,
+            6,
+            9,
+            6,
+            8,
+            9,
+            6,
+            7,
+            8,
+            3,
+            4,
+            11,
+            4,
+            10,
+            11,
+            4,
+            5,
+            10,
+            1,
+            13,
+            0,
+            1,
+            2,
+            13,
+            2,
+            12,
+            13,
+            2,
+            3,
+            12,
+            3,
+            11,
+            12
+          ],
+          "vertices": [
+            1,
+            14,
+            -48.75,
+            -440.76,
+            1,
+            1,
+            14,
+            -78.61,
+            335.66,
+            1,
+            2,
+            14,
+            225.67,
+            347.36,
+            0.99685,
+            15,
+            -509.64,
+            347.36,
+            0.00315,
+            2,
+            14,
+            529.94,
+            359.07,
+            0.81623,
+            15,
+            -205.36,
+            359.07,
+            0.18377,
+            3,
+            14,
+            834.22,
+            370.77,
+            0.21657,
+            15,
+            98.91,
+            370.77,
+            0.77588,
+            16,
+            -391.29,
+            370.77,
+            0.00755,
+            3,
+            14,
+            1138.49,
+            382.47,
+            0.00247,
+            15,
+            403.19,
+            382.47,
+            0.75409,
+            16,
+            -87.01,
+            382.47,
+            0.24344,
+            2,
+            15,
+            707.46,
+            394.18,
+            0.2205,
+            16,
+            217.26,
+            394.18,
+            0.7795,
+            2,
+            15,
+            1011.74,
+            405.88,
+            0.02764,
+            16,
+            521.54,
+            405.88,
+            0.97236,
+            1,
+            16,
+            551.4,
+            -370.55,
+            1,
+            2,
+            15,
+            737.33,
+            -382.25,
+            0.1078,
+            16,
+            247.13,
+            -382.25,
+            0.8922,
+            3,
+            14,
+            1168.35,
+            -393.95,
+            0.01411,
+            15,
+            433.05,
+            -393.95,
+            0.61621,
+            16,
+            -57.15,
+            -393.95,
+            0.36968,
+            3,
+            14,
+            864.08,
+            -405.66,
+            0.29005,
+            15,
+            128.78,
+            -405.66,
+            0.68104,
+            16,
+            -361.43,
+            -405.66,
+            0.02891,
+            2,
+            14,
+            559.8,
+            -417.36,
+            0.84712,
+            15,
+            -175.5,
+            -417.36,
+            0.15288,
+            2,
+            14,
+            255.53,
+            -429.06,
+            0.99802,
+            15,
+            -479.77,
+            -429.06,
+            0.00198
+          ],
+          "hull": 14,
+          "edges": [
+            2,
+            4,
+            4,
+            6,
+            6,
+            8,
+            8,
+            10,
+            10,
+            12,
+            12,
+            14,
+            16,
+            18,
+            18,
+            20,
+            20,
+            22,
+            22,
+            24,
+            24,
+            26,
+            26,
+            0,
+            0,
+            2,
+            14,
+            16
+          ],
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_2": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_3": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_4": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_5": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_6": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_7": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_8": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_9": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_10": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_11": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_12": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_13": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_14": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_15": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_16": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_17": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_18": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_19": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_20": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_21": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        },
+        "smoke_22": {
+          "type": "linkedmesh",
+          "parent": "smoke_1",
+          "width": 777,
+          "height": 1827
+        }
+      }
+    }
+  }
+}
