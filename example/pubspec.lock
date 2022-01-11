@@ -75,7 +75,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.2.0"
+    version: "0.3.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -119,10 +119,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: eaac538d53d9baf4486b186d24cb8e9b0279f7a8
+      resolved-ref: "58b6d51ffc90e6f1fc03a6c9bafb3e9023daf78f"
       url: "https://github.com/signmotion/spine_core.git"
     source: git
-    version: "0.2.0"
+    version: "0.3.0"
   stack_trace:
     dependency: transitive
     description:
