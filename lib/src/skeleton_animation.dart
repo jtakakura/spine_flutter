@@ -39,34 +39,78 @@ class SkeletonAnimation extends core.Skeleton {
   }
 
   static Future<SkeletonAnimation> createWithFiles(
-    String atlasDataFile,
-    String skeletonDataFile,
-    List<String> textureDataFiles, {
-    String pathPrefix = '',
+    String name, {
+    String pathBase = '',
     String rawAtlas = '',
     String rawSkeleton = '',
     Uint8List? rawTexture,
   }) async {
+    final String atlasDataFile = '$name.atlas';
+    final String skeletonDataFile = '$name.json';
+    final String path = '$pathBase$name/';
+
     final Map<String, dynamic> assets = <String, dynamic>{};
     final List<Future<MapEntry<String, dynamic>>> futures =
         <Future<MapEntry<String, dynamic>>>[
-      AssetLoader.loadJson(pathPrefix + skeletonDataFile, rawSkeleton),
-      AssetLoader.loadText(pathPrefix + atlasDataFile, rawAtlas),
+      AssetLoader.loadJson(path + skeletonDataFile, rawSkeleton),
+      AssetLoader.loadText(path + atlasDataFile, rawAtlas),
     ];
+
+    final List<String> textureDataFiles =
+        await textureFilesFromAtlas(path + atlasDataFile);
     for (final String textureDataFile in textureDataFiles) {
-      futures.add(
-          AssetLoader.loadTexture(pathPrefix + textureDataFile, rawTexture));
+      futures.add(AssetLoader.loadTexture(path + textureDataFile, rawTexture));
     }
-    await Future.wait(futures).then(assets.addEntries);
+
+    await Future.wait(futures).then(assets.addEntries).catchError(print);
 
     final core.TextureAtlas atlas = core.TextureAtlas(
-        assets[pathPrefix + atlasDataFile],
-        (String path) => assets[pathPrefix + path]);
+        assets[path + atlasDataFile], (String p) => assets[path + p]);
     final core.AtlasAttachmentLoader atlasLoader =
         core.AtlasAttachmentLoader(atlas);
     final core.SkeletonJson skeletonJson = core.SkeletonJson(atlasLoader);
     final core.SkeletonData skeletonData =
-        skeletonJson.readSkeletonData(assets[pathPrefix + skeletonDataFile]);
+        skeletonJson.readSkeletonData(assets[path + skeletonDataFile]);
+
     return SkeletonAnimation(skeletonData);
   }
+
+  static List<String> textureFiles(String name, int count) =>
+      List<String>.generate(count, (int i) => textureFile(name, i + 1));
+
+  static String textureFile(String name, int i) =>
+      i <= 1 ? '$name.png' : '${name}_$i.png';
+
+  static Future<List<String>> textureFilesFromAtlas(String pathToAtlas) async {
+    final String data = await rootBundle.loadString(pathToAtlas);
+    final core.TextureAtlasReader reader = core.TextureAtlasReader(data);
+    final List<String> r = <String>[];
+    for (;;) {
+      String? line = reader.readLine();
+      if (line == null) {
+        break;
+      }
+
+      line = line.trim();
+      if (line.isEmpty) {
+        continue;
+      }
+
+      if (isAllowedImageFileName(line)) {
+        r.add(line);
+      }
+    }
+
+    return r;
+  }
+
+  static const List<String> allowedImageExtensions = <String>[
+    'jpg',
+    'png',
+    'webp',
+  ];
+
+  static bool isAllowedImageFileName(String file) => allowedImageExtensions
+      .firstWhere((String ext) => file.endsWith('.$ext'), orElse: () => '')
+      .isNotEmpty;
 }

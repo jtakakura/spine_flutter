@@ -28,23 +28,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String get atlasFile => '$name.atlas';
-
-  String get skeletonFile => '$name.json';
-
-  List<String> textureFiles(int count) =>
-      List<String>.generate(count, (int i) => textureFile(i + 1));
-
-  String textureFile(int i) => i <= 1 ? '$name.png' : '${name}_$i.png';
-
-  String get pathPrefix => 'assets/$name/';
+  static const String pathPrefix = 'assets/';
 
   late String name;
   late Set<String> animations;
   late SkeletonAnimation skeleton;
 
   String defaultAnimation = '';
-  int countTextureFiles = 1;
 
   @override
   void initState() {
@@ -53,7 +43,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // cauldron
     name = 'cauldron';
     defaultAnimation = 'idle_1';
-    countTextureFiles = 3;
 
     // raccoon
     //name = 'raccoon';
@@ -136,7 +125,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<Set<String>> loadAnimations() async {
-    final String s = await rootBundle.loadString(pathPrefix + skeletonFile);
+    final String skeletonFile = '$name.json';
+    final String s =
+        await rootBundle.loadString('$pathPrefix$name/$skeletonFile');
     final Map<String, dynamic> data = json.decode(s);
 
     return ((data['animations'] ?? <String, dynamic>{}) as Map<String, dynamic>)
@@ -146,9 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<SkeletonAnimation> loadSkeleton() async =>
       SkeletonAnimation.createWithFiles(
-        atlasFile,
-        skeletonFile,
-        textureFiles(countTextureFiles),
-        pathPrefix: pathPrefix,
+        name,
+        pathBase: pathPrefix,
       );
 }
