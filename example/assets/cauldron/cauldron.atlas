@@ -1,5 +1,5 @@
 
-cauldron.png
+cauldron.webp
 size: 4063, 3326
 format: RGBA8888
 filter: Linear, Linear
@@ -138,7 +138,7 @@ smoke_12
   offset: 0, 0
   index: -1
 
-cauldron_2.png
+cauldron_2.webp
 size: 3389, 3660
 format: RGBA8888
 filter: Linear, Linear
@@ -200,7 +200,7 @@ smoke_2
   offset: 0, 0
   index: -1
 
-cauldron_3.png
+cauldron_3.webp
 size: 3897, 3660
 format: RGBA8888
 filter: Linear, Linear
