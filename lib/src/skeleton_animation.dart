@@ -59,7 +59,9 @@ class SkeletonAnimation extends core.Skeleton {
     final List<String> textureDataFiles =
         await textureFilesFromAtlas(path + atlasDataFile);
     for (final String textureDataFile in textureDataFiles) {
-      futures.add(AssetLoader.loadTexture(path + textureDataFile, rawTexture));
+      final Future<MapEntry<String, dynamic>> entry =
+          AssetLoader.loadTexture(path + textureDataFile, rawTexture);
+      futures.add(entry);
     }
 
     await Future.wait(futures).then(assets.addEntries).catchError(print);
