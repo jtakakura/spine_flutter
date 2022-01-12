@@ -24,7 +24,8 @@ flutter:
   uses-material-design: true
   assets:
     - assets/cauldron/
-    - assets/girl_and_whale/
+    - assets/girl_and_whale_polygons/
+    - assets/girl_and_whale_rectangles/
     - assets/raccoon/
     - assets/raptor/
     - assets/spineboy/
