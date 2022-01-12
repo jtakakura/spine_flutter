@@ -1,0 +1,454 @@
+
+girl_and_whale_polygons.webp
+size: 5000, 2844
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+baloon_1
+  rotate: false
+  xy: 3872, 2218
+  size: 555, 622
+  orig: 557, 624
+  offset: 1, 1
+  index: -1
+baloon_10
+  rotate: false
+  xy: 3809, 1085
+  size: 421, 490
+  orig: 423, 492
+  offset: 1, 1
+  index: -1
+baloon_2
+  rotate: false
+  xy: 4429, 2201
+  size: 511, 639
+  orig: 513, 641
+  offset: 1, 1
+  index: -1
+baloon_3
+  rotate: false
+  xy: 2, 383
+  size: 541, 559
+  orig: 543, 561
+  offset: 1, 1
+  index: -1
+baloon_4
+  rotate: false
+  xy: 1025, 2139
+  size: 554, 701
+  orig: 556, 703
+  offset: 1, 1
+  index: -1
+baloon_5
+  rotate: false
+  xy: 2684, 2171
+  size: 635, 669
+  orig: 637, 671
+  offset: 1, 1
+  index: -1
+baloon_6
+  rotate: false
+  xy: 1040, 341
+  size: 431, 536
+  orig: 433, 538
+  offset: 1, 1
+  index: -1
+baloon_7
+  rotate: false
+  xy: 545, 300
+  size: 493, 577
+  orig: 495, 579
+  offset: 1, 1
+  index: -1
+baloon_8
+  rotate: false
+  xy: 3321, 2199
+  size: 549, 641
+  orig: 551, 643
+  offset: 1, 1
+  index: -1
+baloon_9
+  rotate: false
+  xy: 4087, 187
+  size: 473, 573
+  orig: 475, 575
+  offset: 1, 1
+  index: -1
+bow
+  rotate: false
+  xy: 1913, 2636
+  size: 89, 62
+  orig: 89, 62
+  offset: 0, 0
+  index: -1
+girl_body
+  rotate: false
+  xy: 1581, 2491
+  size: 330, 349
+  orig: 330, 349
+  offset: 0, 0
+  index: -1
+girl_dress_1
+  rotate: false
+  xy: 2042, 2018
+  size: 640, 349
+  orig: 640, 349
+  offset: 0, 0
+  index: -1
+girl_dress_2
+  rotate: false
+  xy: 3631, 1920
+  size: 452, 296
+  orig: 452, 296
+  offset: 0, 0
+  index: -1
+girl_eyebrow_left
+  rotate: false
+  xy: 1996, 2700
+  size: 65, 31
+  orig: 68, 33
+  offset: 1, 1
+  index: -1
+girl_eyebrow_right
+  rotate: false
+  xy: 1626, 2820
+  size: 70, 20
+  orig: 72, 22
+  offset: 1, 1
+  index: -1
+girl_eyelashe_left
+  rotate: false
+  xy: 1912, 2618
+  size: 78, 16
+  orig: 80, 19
+  offset: 1, 2
+  index: -1
+girl_eyelashe_right
+  rotate: false
+  xy: 1581, 2522
+  size: 79, 22
+  orig: 81, 24
+  offset: 1, 1
+  index: -1
+girl_eyelid_left_1
+  rotate: false
+  xy: 2208, 2816
+  size: 53, 24
+  orig: 56, 27
+  offset: 2, 2
+  index: -1
+girl_eyelid_left_2
+  rotate: false
+  xy: 2004, 2679
+  size: 53, 19
+  orig: 56, 21
+  offset: 1, 1
+  index: -1
+girl_eyelid_right_1
+  rotate: false
+  xy: 2095, 2760
+  size: 55, 33
+  orig: 58, 36
+  offset: 2, 2
+  index: -1
+girl_eyelid_right_2
+  rotate: false
+  xy: 312, 2793
+  size: 53, 20
+  orig: 55, 22
+  offset: 1, 1
+  index: -1
+girl_finger_1
+  rotate: false
+  xy: 1877, 2786
+  size: 55, 54
+  orig: 57, 56
+  offset: 1, 1
+  index: -1
+girl_finger_2
+  rotate: false
+  xy: 2, 2775
+  size: 54, 65
+  orig: 57, 67
+  offset: 2, 1
+  index: -1
+girl_finger_3
+  rotate: false
+  xy: 254, 2779
+  size: 56, 61
+  orig: 58, 63
+  offset: 1, 1
+  index: -1
+girl_finger_4
+  rotate: false
+  xy: 865, 2787
+  size: 40, 53
+  orig: 42, 55
+  offset: 1, 1
+  index: -1
+girl_finger_5
+  rotate: false
+  xy: 4942, 2754
+  size: 50, 86
+  orig: 52, 88
+  offset: 1, 1
+  index: -1
+girl_finger_6
+  rotate: false
+  xy: 4942, 2684
+  size: 29, 68
+  orig: 31, 70
+  offset: 1, 1
+  index: -1
+girl_finger_7
+  rotate: false
+  xy: 2065, 2718
+  size: 28, 75
+  orig: 38, 77
+  offset: 1, 1
+  index: -1
+girl_finger_8
+  rotate: false
+  xy: 2, 2711
+  size: 26, 62
+  orig: 28, 64
+  offset: 1, 1
+  index: -1
+girl_hair_1
+  rotate: false
+  xy: 3556, 368
+  size: 529, 388
+  orig: 529, 388
+  offset: 0, 0
+  index: -1
+girl_hair_2
+  rotate: false
+  xy: 3070, 1895
+  size: 238, 274
+  orig: 238, 274
+  offset: 0, 0
+  index: -1
+girl_hair_3
+  rotate: false
+  xy: 2, 2095
+  size: 1021, 745
+  orig: 1021, 745
+  offset: 0, 0
+  index: -1
+girl_hand_left
+  rotate: false
+  xy: 2494, 2403
+  size: 188, 329
+  orig: 188, 329
+  offset: 0, 0
+  index: -1
+girl_hand_right
+  rotate: false
+  xy: 2, 2583
+  size: 250, 257
+  orig: 250, 257
+  offset: 0, 0
+  index: -1
+girl_head
+  rotate: false
+  xy: 369, 1928
+  size: 344, 306
+  orig: 348, 309
+  offset: 2, 2
+  index: -1
+girl_lace_left
+  rotate: false
+  xy: 969, 2689
+  size: 45, 56
+  orig: 47, 58
+  offset: 0, 1
+  index: -1
+girl_lace_right
+  rotate: false
+  xy: 2555, 2636
+  size: 39, 48
+  orig: 39, 48
+  offset: 0, 0
+  index: -1
+girl_leg_left
+  rotate: false
+  xy: 1025, 1951
+  size: 254, 186
+  orig: 254, 186
+  offset: 0, 0
+  index: -1
+girl_leg_right
+  rotate: false
+  xy: 2678, 2006
+  size: 289, 163
+  orig: 289, 163
+  offset: 0, 0
+  index: -1
+girl_mouth
+  rotate: false
+  xy: 2070, 2795
+  size: 136, 45
+  orig: 139, 48
+  offset: 2, 1
+  index: -1
+girl_neck
+  rotate: false
+  xy: 424, 2249
+  size: 112, 74
+  orig: 112, 74
+  offset: 0, 0
+  index: -1
+girl_nose
+  rotate: false
+  xy: 1581, 2770
+  size: 43, 70
+  orig: 45, 72
+  offset: 1, 1
+  index: -1
+girl_palm_left
+  rotate: false
+  xy: 923, 2747
+  size: 91, 93
+  orig: 93, 95
+  offset: 1, 1
+  index: -1
+girl_palm_right
+  rotate: false
+  xy: 2593, 2351
+  size: 89, 95
+  orig: 91, 97
+  offset: 1, 1
+  index: -1
+girl_sneaker_left
+  rotate: false
+  xy: 1912, 2678
+  size: 157, 162
+  orig: 158, 164
+  offset: 1, 0
+  index: -1
+girl_sneaker_right
+  rotate: false
+  xy: 2347, 2318
+  size: 145, 152
+  orig: 146, 152
+  offset: 1, 0
+  index: -1
+girl_teeth
+  rotate: false
+  xy: 312, 2815
+  size: 90, 25
+  orig: 92, 27
+  offset: 1, 1
+  index: -1
+rope_1
+  rotate: false
+  xy: 4570, 1100
+  size: 232, 1099
+  orig: 232, 1099
+  offset: 0, 0
+  index: -1
+rope_10
+  rotate: false
+  xy: 3321, 1852
+  size: 82, 345
+  orig: 82, 345
+  offset: 0, 0
+  index: -1
+rope_11
+  rotate: false
+  xy: 883, 1972
+  size: 140, 310
+  orig: 140, 310
+  offset: 0, 0
+  index: -1
+rope_12
+  rotate: false
+  xy: 1581, 2317
+  size: 132, 189
+  orig: 132, 189
+  offset: 0, 0
+  index: -1
+rope_2
+  rotate: false
+  xy: 4232, 1270
+  size: 336, 929
+  orig: 336, 929
+  offset: 0, 0
+  index: -1
+rope_3
+  rotate: false
+  xy: 4105, 1783
+  size: 85, 433
+  orig: 85, 433
+  offset: 0, 0
+  index: -1
+rope_4
+  rotate: false
+  xy: 3131, 2
+  size: 241, 730
+  orig: 241, 730
+  offset: 0, 0
+  index: -1
+rope_5
+  rotate: false
+  xy: 2848, 66
+  size: 281, 697
+  orig: 281, 697
+  offset: 0, 0
+  index: -1
+rope_6
+  rotate: false
+  xy: 804, 2816
+  size: 53, 24
+  orig: 55, 27
+  offset: 1, 1
+  index: -1
+rope_7
+  rotate: false
+  xy: 4804, 1690
+  size: 136, 509
+  orig: 136, 509
+  offset: 0, 0
+  index: -1
+rope_8
+  rotate: false
+  xy: 749, 1917
+  size: 132, 321
+  orig: 132, 321
+  offset: 0, 0
+  index: -1
+rope_9
+  rotate: false
+  xy: 4804, 1255
+  size: 80, 433
+  orig: 80, 433
+  offset: 0, 0
+  index: -1
+whale_body_1
+  rotate: false
+  xy: 2, 879
+  size: 4228, 1961
+  orig: 4228, 1961
+  offset: 0, 0
+  index: -1
+whale_body_2
+  rotate: false
+  xy: 1495, 358
+  size: 3503, 926
+  orig: 3503, 926
+  offset: 0, 0
+  index: -1
+whale_eye
+  rotate: false
+  xy: 3405, 2042
+  size: 165, 155
+  orig: 167, 158
+  offset: 1, 2
+  index: -1
+whale_fin
+  rotate: false
+  xy: 2, 1641
+  size: 386, 466
+  orig: 386, 466
+  offset: 0, 0
+  index: -1
