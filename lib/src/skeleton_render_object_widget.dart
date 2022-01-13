@@ -365,13 +365,13 @@ class SkeletonRenderObject extends RenderBox {
           1.0
         ]))
         ..translate(regionAttachment.offset[0], regionAttachment.offset[1])
-        ..rotate(regionAttachment.rotation! * math.pi / 180);
+        ..rotate(regionAttachment.rotation * math.pi / 180);
 
-      final double atlasScale = regionAttachment.width! / w;
+      final double atlasScale = regionAttachment.width / w;
 
       canvas
-        ..scale(atlasScale * regionAttachment.scaleX!,
-            atlasScale * regionAttachment.scaleY!)
+        ..scale(atlasScale * regionAttachment.scaleX,
+            atlasScale * regionAttachment.scaleY)
         ..translate(w / 2, h / 2);
       if (regionAttachment.region.rotate) {
         final double t = w;
@@ -388,7 +388,7 @@ class SkeletonRenderObject extends RenderBox {
       }
       canvas.drawImageRect(
           image,
-          Rect.fromLTWH(region.x!.toDouble(), region.y!.toDouble(), w, h),
+          Rect.fromLTWH(region.x.toDouble(), region.y.toDouble(), w, h),
           Rect.fromLTWH(0.0, 0.0, w, h),
           paint);
       if (_debugRendering!)
