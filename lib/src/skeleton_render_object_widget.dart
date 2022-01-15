@@ -306,9 +306,6 @@ class SkeletonRenderObject extends RenderBox {
     final Paint paint = Paint();
     final List<core.Slot> drawOrder = skeleton.drawOrder;
 
-    // @TODO デバッグ表示実装
-    // if (debugRendering) paint.color = const ui.Color.fromRGBO(0, 255, 0, 1.0);
-
     canvas.save();
 
     final int n = drawOrder.length;
@@ -365,13 +362,13 @@ class SkeletonRenderObject extends RenderBox {
           1.0
         ]))
         ..translate(regionAttachment.offset[0], regionAttachment.offset[1])
-        ..rotate(regionAttachment.rotation * math.pi / 180);
+        ..rotate((regionAttachment.rotation ?? 0.0) * math.pi / 180);
 
-      final double atlasScale = regionAttachment.width / w;
+      final double atlasScale = (regionAttachment.width ?? 0.0) / w;
 
       canvas
-        ..scale(atlasScale * regionAttachment.scaleX,
-            atlasScale * regionAttachment.scaleY)
+        ..scale(atlasScale * (regionAttachment.scaleX ?? 1.0),
+            atlasScale * (regionAttachment.scaleY ?? 1.0))
         ..translate(w / 2, h / 2);
       if (regionAttachment.region.rotate) {
         final double t = w;
@@ -388,7 +385,7 @@ class SkeletonRenderObject extends RenderBox {
       }
       canvas.drawImageRect(
           image,
-          Rect.fromLTWH(region.x.toDouble(), region.y.toDouble(), w, h),
+          Rect.fromLTWH(region.x!.toDouble(), region.y!.toDouble(), w, h),
           Rect.fromLTWH(0.0, 0.0, w, h),
           paint);
       if (_debugRendering!)

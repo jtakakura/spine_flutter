@@ -67,7 +67,7 @@ class SkeletonAnimation extends core.Skeleton {
     await Future.wait(futures).then(assets.addEntries).catchError(print);
 
     final core.TextureAtlas atlas = core.TextureAtlas(
-        assets[path + atlasDataFile], (String p) => assets[path + p]);
+        assets[path + atlasDataFile], (String? p) => assets[path + (p ?? '')]);
     final core.AtlasAttachmentLoader atlasLoader =
         core.AtlasAttachmentLoader(atlas);
     final core.SkeletonJson skeletonJson = core.SkeletonJson(atlasLoader);
