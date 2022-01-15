@@ -5,21 +5,15 @@ description: The spine-flutter runtime provides functionality to load and manipu
 version: 0.1.0
 homepage: https://github.com/jtakakura/spine_flutter/
 
-publish_to: 'none'
-
 environment:
-  flutter: '>=2.8.1 <3.0.0'
   sdk: '>=2.15.1 <3.0.0'
+  flutter: '>=2.8.1'
 
 dependencies:
   fimber: ^0.6.4
   flutter:
     sdk: flutter
-
-  #spine_core: ^0.2.0
-  spine_core:
-    git: https://github.com/signmotion/spine_core.git
-    #path: ../spine_core
+  spine_core: ^0.3.0
 
 dev_dependencies:
   flutter_test:
