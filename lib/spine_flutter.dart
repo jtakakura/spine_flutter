@@ -21,7 +21,7 @@
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ******************************************************************************
 
-library flutter_spine;
+library spine_flutter;
 
 import 'dart:async';
 import 'dart:convert';

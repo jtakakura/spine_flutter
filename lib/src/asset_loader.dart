@@ -21,7 +21,7 @@
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ******************************************************************************
 
-part of flutter_spine;
+part of spine_flutter;
 
 class AssetLoader {
   static Future<MapEntry<String, dynamic>> loadJson(

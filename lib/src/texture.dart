@@ -21,7 +21,7 @@
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ******************************************************************************
 
-part of flutter_spine;
+part of spine_flutter;
 
 class Texture extends core.Texture {
   Texture(ui.Image image) : super(image);
