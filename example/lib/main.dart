@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:spine_flutter/spine_flutter.dart';
 
+/// \see http://ru.esotericsoftware.com/spine-runtimes-guide
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -158,6 +159,9 @@ class _MyHomePageState extends State<MyHomePage> {
   void _onTapDown(BuildContext context, TapDownDetails details) {
     tapPosition = details.globalPosition;
     print(tapPosition);
+
+    //skeleton.state.data.defaultMix = 0.5;
+    //skeleton.state.data.setMix('idle', 'down', 0.5);
 
     //skeleton.setBonesToSetupPose();
 
