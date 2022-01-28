@@ -12,7 +12,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  spine_core: ^0.3.1
+
+  #spine_core: ^0.3.1
+  spine_core:
+    path: ../spine_core
+    #git: https://github.com/signmotion/spine_core.git
 
 dev_dependencies:
   flutter_test:
