@@ -40,12 +40,16 @@ class _MyHomePageState extends State<MyHomePage> {
     //defaultAnimation = 'idle_1';
 
     // girl_and_whale_polygons
-    name = 'girl_and_whale_polygons';
-    defaultAnimation = 'idle_offset';
+    //name = 'girl_and_whale_polygons';
+    //defaultAnimation = 'idle_offset';
 
     // girl_and_whale_rectangles
     //name = 'girl_and_whale_rectangles';
     //defaultAnimation = 'idle_offset';
+
+    // owl
+    name = 'owl';
+    defaultAnimation = 'idle';
 
     // raccoon
     //name = 'raccoon';
