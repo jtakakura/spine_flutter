@@ -1,10 +1,15 @@
 import 'dart:convert';
 
+import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spine/flutter_spine.dart';
+import 'package:spine_flutter/spine_flutter.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  Fimber.plantTree(DebugTree.elapsed(useColors: true));
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -16,24 +21,18 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key key}) : super(key: key);
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String get atlasFile => '$name.atlas';
+  static const String pathPrefix = 'assets/';
 
-  String get skeletonFile => '$name.json';
-
-  String get textureFile => '$name.png';
-
-  String get pathPrefix => 'assets/$name/';
-
-  String name;
-  Set<String> animations;
-  SkeletonAnimation skeleton;
+  late String name;
+  late Set<String> animations;
+  late SkeletonAnimation skeleton;
 
   String defaultAnimation = '';
 
@@ -41,12 +40,28 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
 
-    // spineboy
-    name = 'spineboy';
-    defaultAnimation = 'walk';
+    // cauldron
+    //name = 'cauldron';
+    //defaultAnimation = 'idle_1';
+
+    // girl_and_whale_polygons
+    name = 'girl_and_whale_polygons';
+    defaultAnimation = 'idle_offset';
+
+    // girl_and_whale_rectangles
+    //name = 'girl_and_whale_rectangles';
+    //defaultAnimation = 'idle_offset';
+
+    // raccoon
+    //name = 'raccoon';
+    //defaultAnimation = 'idle_4';
 
     // raptor
     //name = 'raptor';
+    //defaultAnimation = 'walk';
+
+    // spineboy
+    //name = 'spineboy';
     //defaultAnimation = 'walk';
   }
 
@@ -55,8 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
         future: load(),
         builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
           if (snapshot.hasData) {
-            if ((defaultAnimation == null || defaultAnimation.isEmpty) &&
-                animations.isNotEmpty) {
+            if (defaultAnimation.isEmpty && animations.isNotEmpty) {
               defaultAnimation = animations.first;
             }
             skeleton.state.setAnimation(0, defaultAnimation, true);
@@ -119,7 +133,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<Set<String>> loadAnimations() async {
-    final String s = await rootBundle.loadString(pathPrefix + skeletonFile);
+    final String skeletonFile = '$name.json';
+    final String s =
+        await rootBundle.loadString('$pathPrefix$name/$skeletonFile');
     final Map<String, dynamic> data = json.decode(s);
 
     return ((data['animations'] ?? <String, dynamic>{}) as Map<String, dynamic>)
@@ -129,9 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<SkeletonAnimation> loadSkeleton() async =>
       SkeletonAnimation.createWithFiles(
-        atlasFile,
-        skeletonFile,
-        textureFile,
-        pathPrefix: pathPrefix,
+        name,
+        pathBase: pathPrefix,
       );
 }

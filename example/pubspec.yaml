@@ -3,14 +3,17 @@ description: A new Flutter project.
 
 version: 1.0.0+1
 
+publish_to: none
+
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  flutter: '>=2.8.1 <3.0.0'
+  sdk: '>=2.15.1 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^0.1.2
-  flutter_spine:
+  cupertino_icons: ^1.0.4
+  spine_flutter:
     path: ../
 
 dev_dependencies:
@@ -20,5 +23,9 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - assets/cauldron/
+    - assets/girl_and_whale_polygons/
+    - assets/girl_and_whale_rectangles/
+    - assets/raccoon/
     - assets/raptor/
     - assets/spineboy/

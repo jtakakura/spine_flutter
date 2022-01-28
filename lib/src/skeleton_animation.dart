@@ -1,27 +1,4 @@
-// ******************************************************************************
-// Copyright 2018 Junji Takakura
-//
-// Spine Runtime originally copyright (c) 2013-2016, Esoteric Software
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy of
-// this software and associated documentation files (the "Software"), to deal in
-//  the Software without restriction, including without limitation the rights to
-//  use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-//  the Software, and to permit persons to whom the Software is furnished to do so,
-// subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-// FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-// COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-// IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-// CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-// ******************************************************************************
-
-part of flutter_spine;
+part of spine_flutter;
 
 class SkeletonAnimation extends core.Skeleton {
   SkeletonAnimation(core.SkeletonData data)
@@ -39,31 +16,80 @@ class SkeletonAnimation extends core.Skeleton {
   }
 
   static Future<SkeletonAnimation> createWithFiles(
-    String atlasDataFile,
-    String skeletonDataFile,
-    String textureDataFile, {
-    String pathPrefix = '',
+    String name, {
+    String pathBase = '',
     String rawAtlas = '',
     String rawSkeleton = '',
     Uint8List? rawTexture,
   }) async {
+    final String atlasDataFile = '$name.atlas';
+    final String skeletonDataFile = '$name.json';
+    final String path = '$pathBase$name/';
+
     final Map<String, dynamic> assets = <String, dynamic>{};
     final List<Future<MapEntry<String, dynamic>>> futures =
         <Future<MapEntry<String, dynamic>>>[
-      AssetLoader.loadJson(pathPrefix + skeletonDataFile, rawSkeleton),
-      AssetLoader.loadText(pathPrefix + atlasDataFile, rawAtlas),
-      AssetLoader.loadTexture(pathPrefix + textureDataFile, rawTexture),
+      AssetLoader.loadJson(path + skeletonDataFile, rawSkeleton),
+      AssetLoader.loadText(path + atlasDataFile, rawAtlas),
     ];
-    await Future.wait(futures).then(assets.addEntries);
+
+    final List<String> textureDataFiles =
+        await textureFilesFromAtlas(path + atlasDataFile);
+    for (final String textureDataFile in textureDataFiles) {
+      final Future<MapEntry<String, dynamic>> entry =
+          AssetLoader.loadTexture(path + textureDataFile, rawTexture);
+      futures.add(entry);
+    }
+
+    await Future.wait(futures).then(assets.addEntries).catchError(print);
 
     final core.TextureAtlas atlas = core.TextureAtlas(
-        assets[pathPrefix + atlasDataFile],
-        (String path) => assets[pathPrefix + path]);
+        assets[path + atlasDataFile], (String? p) => assets[path + (p ?? '')]);
     final core.AtlasAttachmentLoader atlasLoader =
         core.AtlasAttachmentLoader(atlas);
     final core.SkeletonJson skeletonJson = core.SkeletonJson(atlasLoader);
     final core.SkeletonData skeletonData =
-        skeletonJson.readSkeletonData(assets[pathPrefix + skeletonDataFile]);
+        skeletonJson.readSkeletonData(assets[path + skeletonDataFile]);
+
     return SkeletonAnimation(skeletonData);
   }
+
+  static List<String> textureFiles(String name, int count) =>
+      List<String>.generate(count, (int i) => textureFile(name, i + 1));
+
+  static String textureFile(String name, int i) =>
+      i <= 1 ? '$name.png' : '${name}_$i.png';
+
+  static Future<List<String>> textureFilesFromAtlas(String pathToAtlas) async {
+    final String data = await rootBundle.loadString(pathToAtlas);
+    final core.TextureAtlasReader reader = core.TextureAtlasReader(data);
+    final List<String> r = <String>[];
+    for (;;) {
+      String? line = reader.readLine();
+      if (line == null) {
+        break;
+      }
+
+      line = line.trim();
+      if (line.isEmpty) {
+        continue;
+      }
+
+      if (isAllowedImageFileName(line)) {
+        r.add(line);
+      }
+    }
+
+    return r;
+  }
+
+  static const List<String> allowedImageExtensions = <String>[
+    'jpg',
+    'png',
+    'webp',
+  ];
+
+  static bool isAllowedImageFileName(String file) => allowedImageExtensions
+      .firstWhere((String ext) => file.endsWith('.$ext'), orElse: () => '')
+      .isNotEmpty;
 }
