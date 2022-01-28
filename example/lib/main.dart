@@ -65,7 +65,12 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
-  Widget build(BuildContext context) => FutureBuilder<bool>(
+  Widget build(BuildContext context) => GestureDetector(
+        child: _buildFuture(),
+        onTapDown: (TapDownDetails details) => _onTapDown(context, details),
+      );
+
+  Widget _buildFuture() => FutureBuilder<bool>(
         future: load(),
         builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
           if (snapshot.hasData) {
@@ -147,4 +152,18 @@ class _MyHomePageState extends State<MyHomePage> {
         name,
         pathBase: pathPrefix,
       );
+
+  Offset? tapPosition;
+
+  void _onTapDown(BuildContext context, TapDownDetails details) {
+    tapPosition = details.globalPosition;
+    print(tapPosition);
+
+    //skeleton.setBonesToSetupPose();
+
+    //skeleton.state.clearTracks();
+
+    // decrease a speed
+    //skeleton.state.timeScale = 0.5;
+  }
 }
