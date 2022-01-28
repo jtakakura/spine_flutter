@@ -10,7 +10,6 @@ environment:
   flutter: '>=2.8.1'
 
 dependencies:
-  fimber: ^0.6.4
   flutter:
     sdk: flutter
   spine_core: ^0.3.1

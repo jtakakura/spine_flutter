@@ -1,15 +1,10 @@
 import 'dart:convert';
 
-import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:spine_flutter/spine_flutter.dart';
 
-void main() {
-  Fimber.plantTree(DebugTree.elapsed(useColors: true));
-
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
