@@ -7,6 +7,17 @@ import 'package:spine_flutter/spine_flutter.dart';
 /// \see http://ru.esotericsoftware.com/spine-runtimes-guide
 void main() => runApp(MyApp());
 
+/// All animations. Format: `model_name: defaultAnimation`.
+const Map<String, String> all = <String, String>{
+  'cauldron': 'idle_1',
+  'girl_and_whale_polygons': 'idle_offset',
+  'girl_and_whale_rectangles': 'idle_offset',
+  'owl': 'idle',
+  'raccoon': 'idle_4',
+  'raptor': 'walk',
+  'spineboy': 'walk',
+};
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
@@ -36,33 +47,8 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
 
-    // cauldron
-    //name = 'cauldron';
-    //defaultAnimation = 'idle_1';
-
-    // girl_and_whale_polygons
-    //name = 'girl_and_whale_polygons';
-    //defaultAnimation = 'idle_offset';
-
-    // girl_and_whale_rectangles
-    //name = 'girl_and_whale_rectangles';
-    //defaultAnimation = 'idle_offset';
-
-    // owl
-    name = 'owl';
-    defaultAnimation = 'idle';
-
-    // raccoon
-    //name = 'raccoon';
-    //defaultAnimation = 'idle_4';
-
-    // raptor
-    //name = 'raptor';
-    //defaultAnimation = 'walk';
-
-    // spineboy
-    //name = 'spineboy';
-    //defaultAnimation = 'walk';
+    name = all.keys.first;
+    defaultAnimation = all[name]!;
   }
 
   @override
