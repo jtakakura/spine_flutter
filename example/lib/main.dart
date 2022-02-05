@@ -36,7 +36,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   static const String pathPrefix = 'assets/';
 
-  String name = all.keys.first;
+  String name = all.keys.last;
 
   late Set<String> animations;
   late SkeletonAnimation skeleton;
