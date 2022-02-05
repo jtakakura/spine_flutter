@@ -13,7 +13,6 @@ const Map<String, String> all = <String, String>{
   'girl_and_whale_polygons': 'idle_offset',
   'girl_and_whale_rectangles': 'idle_offset',
   'owl': 'idle',
-  'raccoon': 'idle_4',
   'raptor': 'walk',
   'spineboy': 'walk',
 };
@@ -37,19 +36,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   static const String pathPrefix = 'assets/';
 
-  late String name;
+  String name = all.keys.first;
+
   late Set<String> animations;
   late SkeletonAnimation skeleton;
-
-  String defaultAnimation = '';
-
-  @override
-  void initState() {
-    super.initState();
-
-    name = all.keys.first;
-    defaultAnimation = all[name]!;
-  }
 
   @override
   Widget build(BuildContext context) => GestureDetector(
@@ -61,10 +51,10 @@ class _MyHomePageState extends State<MyHomePage> {
         future: load(),
         builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
           if (snapshot.hasData) {
-            if (defaultAnimation.isEmpty && animations.isNotEmpty) {
-              defaultAnimation = animations.first;
+            if (animations.isNotEmpty) {
+              final String defaultAnimation = all[name]!;
+              skeleton.state.setAnimation(0, defaultAnimation, true);
             }
-            skeleton.state.setAnimation(0, defaultAnimation, true);
 
             return _buildScreen();
           }
@@ -84,12 +74,30 @@ class _MyHomePageState extends State<MyHomePage> {
       triangleRendering: true,
     );
 
-    final List<Widget> buttons = <Widget>[];
-    for (final String animation in animations) {
-      buttons.add(
+    final List<Widget> models = <Widget>[];
+    for (final String model in all.keys) {
+      models.add(
         TextButton(
-          child: Text(animation.toUpperCase()),
+          child: Text(model.toUpperCase()),
+          onPressed: () async {
+            name = model;
+            await load();
+            setState(() {
+              final String defaultAnimation = all[name]!;
+              skeleton.state.setAnimation(0, defaultAnimation, false);
+            });
+          },
+        ),
+      );
+    }
+
+    final List<Widget> states = <Widget>[];
+    for (final String animation in animations) {
+      states.add(
+        TextButton(
+          child: Text(animation.toLowerCase()),
           onPressed: () {
+            final String defaultAnimation = all[name]!;
             skeleton.state
               ..setAnimation(0, animation, false)
               ..addAnimation(0, defaultAnimation, true, 0.0);
@@ -107,8 +115,14 @@ class _MyHomePageState extends State<MyHomePage> {
           skeletonWidget,
           Positioned.fill(
             child: Wrap(
+              runAlignment: WrapAlignment.start,
+              children: models,
+            ),
+          ),
+          Positioned.fill(
+            child: Wrap(
               runAlignment: WrapAlignment.end,
-              children: buttons,
+              children: states,
             ),
           ),
         ],
