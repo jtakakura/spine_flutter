@@ -13,7 +13,7 @@ dependencies:
   fimber: ^0.6.4
   flutter:
     sdk: flutter
-  spine_core: ^0.3.1
+  spine_core: ^0.3.2
 
 dev_dependencies:
   flutter_lints: ^1.0.4
