@@ -41,7 +41,9 @@ class SkeletonAnimation extends core.Skeleton {
       futures.add(entry);
     }
 
-    await Future.wait(futures).then(assets.addEntries).catchError(print);
+    await Future.wait(futures)
+        .then(assets.addEntries)
+        .catchError((Object e) => Fimber.d("Couldn't add entries", ex: e));
 
     final core.TextureAtlas atlas = core.TextureAtlas(
         assets[path + atlasDataFile], (String? p) => assets[path + (p ?? '')]);

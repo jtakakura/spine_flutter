@@ -21,7 +21,7 @@
 
 part of spine_flutter;
 
-enum PlayState { Paused, Playing }
+enum PlayState { paused, playing }
 
 class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
   const SkeletonRenderObjectWidget(
@@ -30,7 +30,9 @@ class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
       required this.alignment,
       required this.playState,
       this.debugRendering = false,
-      this.triangleRendering = false});
+      this.triangleRendering = false,
+      Key? key})
+      : super(key: key);
 
   final SkeletonAnimation skeleton;
   final BoxFit fit;
@@ -97,7 +99,7 @@ class SkeletonRenderObject extends RenderBox {
       ..applyState()
       ..updateWorldTransform();
 
-    if (_playState == PlayState.Playing) {
+    if (_playState == PlayState.playing) {
       SchedulerBinding.instance!.scheduleFrameCallback(beginFrame);
     }
 
@@ -132,7 +134,7 @@ class SkeletonRenderObject extends RenderBox {
   bool get isRepaintBoundary => true;
 
   @override
-  bool hitTestSelf(Offset screenOffset) => true;
+  bool hitTestSelf(Offset position) => true;
 
   @override
   void performResize() {
@@ -170,14 +172,14 @@ class SkeletonRenderObject extends RenderBox {
     markNeedsPaint();
   }
 
-  PlayState get playState => _playState ?? PlayState.Playing;
+  PlayState get playState => _playState ?? PlayState.playing;
 
   set playState(PlayState value) {
     if (value == _playState) {
       return;
     }
     _playState = value;
-    if (_playState == PlayState.Playing) {
+    if (_playState == PlayState.playing) {
       SchedulerBinding.instance!.scheduleFrameCallback(beginFrame);
     }
   }
@@ -388,8 +390,9 @@ class SkeletonRenderObject extends RenderBox {
           Rect.fromLTWH(region.x.toDouble(), region.y.toDouble(), w, h),
           Rect.fromLTWH(0.0, 0.0, w, h),
           paint);
-      if (_debugRendering!)
+      if (_debugRendering!) {
         canvas.drawRect(Rect.fromLTWH(0.0, 0.0, w, h), paint);
+      }
       canvas.restore();
     }
 
@@ -427,8 +430,9 @@ class SkeletonRenderObject extends RenderBox {
         triangles = mesh.triangles!;
         texture = mesh.region?.renderObject.texture.image;
         attachmentColor = mesh.color;
-      } else
+      } else {
         continue;
+      }
 
       if (texture != null) {
         final core.BlendMode slotBlendMode = slot.data.blendMode!;

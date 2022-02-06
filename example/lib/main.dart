@@ -8,10 +8,12 @@ import 'package:spine_flutter/spine_flutter.dart';
 void main() {
   Fimber.plantTree(DebugTree.elapsed(useColors: true));
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) => MaterialApp(
         title: 'Flutter Spine Demo',
@@ -88,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
       skeleton: skeleton,
       alignment: Alignment.center,
       fit: BoxFit.contain,
-      playState: PlayState.Playing,
+      playState: PlayState.playing,
       debugRendering: false,
       triangleRendering: true,
     );
