@@ -42,10 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
   late SkeletonAnimation skeleton;
 
   @override
-  Widget build(BuildContext context) => GestureDetector(
-        child: _buildFuture(),
-        onTapDown: (TapDownDetails details) => _onTapDown(context, details),
-      );
+  Widget build(BuildContext context) => _buildFuture();
 
   Widget _buildFuture() => FutureBuilder<bool>(
         future: load(),
@@ -149,25 +146,5 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<SkeletonAnimation> loadSkeleton() async =>
-      SkeletonAnimation.createWithFiles(
-        name,
-        pathBase: pathPrefix,
-      );
-
-  Offset? tapPosition;
-
-  void _onTapDown(BuildContext context, TapDownDetails details) {
-    tapPosition = details.globalPosition;
-    print(tapPosition);
-
-    //skeleton.state.data.defaultMix = 0.5;
-    //skeleton.state.data.setMix('idle', 'down', 0.5);
-
-    //skeleton.setBonesToSetupPose();
-
-    //skeleton.state.clearTracks();
-
-    // decrease a speed
-    //skeleton.state.timeScale = 0.5;
-  }
+      SkeletonAnimation.createWithFiles(name, pathBase: pathPrefix);
 }
