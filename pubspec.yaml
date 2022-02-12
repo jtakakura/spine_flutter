@@ -13,10 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  #spine_core: ^0.3.1
-  spine_core:
-    path: ../spine_core
-    #git: https://github.com/signmotion/spine_core.git
+  spine_core: ^0.3.2
 
 dev_dependencies:
   flutter_lints: ^1.0.4
