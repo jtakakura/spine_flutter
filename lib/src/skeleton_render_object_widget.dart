@@ -75,7 +75,7 @@ class SkeletonRenderObject extends RenderBox {
   BoxFit? _fit;
   Alignment? _alignment;
   PlayState? _playState;
-  core.Bounds? _bounds;
+  core.Bounds? bounds;
   bool? _debugRendering;
   bool? _triangleRendering;
   Float32List _vertices = Float32List(8 * 1024);
@@ -118,11 +118,7 @@ class SkeletonRenderObject extends RenderBox {
 
     _resize(canvas, offset);
 
-    if (_triangleRendering!) {
-      _drawTriangles(canvas, _skeleton!);
-    } else {
-      _drawImages(canvas, _skeleton!);
-    }
+    draw(canvas);
 
     canvas.restore();
   }
@@ -148,7 +144,7 @@ class SkeletonRenderObject extends RenderBox {
       return;
     }
     _skeleton = value;
-    if (_skeleton != null) _bounds = _calculateBounds(_skeleton!);
+    if (_skeleton != null) bounds = _calculateBounds(_skeleton!);
     markNeedsPaint();
   }
 
@@ -302,6 +298,14 @@ class SkeletonRenderObject extends RenderBox {
     }
 
     return vertices;
+  }
+
+  void draw(ui.Canvas canvas) {
+    if (_triangleRendering!) {
+      _drawTriangles(canvas, _skeleton!);
+    } else {
+      _drawImages(canvas, _skeleton!);
+    }
   }
 
   void _drawImages(ui.Canvas canvas, SkeletonAnimation skeleton) {
@@ -582,16 +586,16 @@ class SkeletonRenderObject extends RenderBox {
   }
 
   void _resize(Canvas canvas, ui.Offset offset) {
-    if (_bounds == null) {
+    if (bounds == null) {
       return;
     }
 
-    final double contentHeight = _bounds!.size.y;
-    final double contentWidth = _bounds!.size.x;
-    final double x = -_bounds!.offset.x -
+    final double contentHeight = bounds!.size.y;
+    final double contentWidth = bounds!.size.x;
+    final double x = -bounds!.offset.x -
         contentWidth / 2.0 -
         (_alignment!.x * contentWidth / 2.0);
-    final double y = -_bounds!.offset.y -
+    final double y = -bounds!.offset.y -
         contentHeight / 2.0 +
         (_alignment!.y * contentHeight / 2.0);
     double scaleX = 1.0, scaleY = 1.0;
