@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:spine_flutter/spine_flutter.dart';
 
 /// \see http://ru.esotericsoftware.com/spine-runtimes-guide
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 /// All animations. Format: `model_name: defaultAnimation`.
 const Map<String, String> all = <String, String>{
@@ -18,6 +18,8 @@ const Map<String, String> all = <String, String>{
 };
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) => MaterialApp(
         title: 'Flutter Spine Demo',
