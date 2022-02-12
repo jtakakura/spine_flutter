@@ -9,7 +9,7 @@ class AssetLoader {
     } else {
       data = await rootBundle.loadString(path);
     }
-    return new MapEntry<String, dynamic>(path, json.decode(data));
+    return MapEntry<String, dynamic>(path, json.decode(data));
   }
 
   static Future<MapEntry<String, String>> loadText(
@@ -20,7 +20,7 @@ class AssetLoader {
     } else {
       data = await rootBundle.loadString(path);
     }
-    return new MapEntry<String, String>(path, data);
+    return MapEntry<String, String>(path, data);
   }
 
   static Future<MapEntry<String, Texture>> loadTexture(
@@ -34,6 +34,6 @@ class AssetLoader {
     }
     final ui.Codec codec = await ui.instantiateImageCodec(data);
     final ui.FrameInfo frame = await codec.getNextFrame();
-    return new MapEntry<String, Texture>(path, new Texture(frame.image));
+    return MapEntry<String, Texture>(path, Texture(frame.image));
   }
 }

@@ -69,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
       skeleton: skeleton,
       alignment: Alignment.center,
       fit: BoxFit.contain,
-      playState: PlayState.Playing,
+      playState: PlayState.playing,
       debugRendering: false,
       triangleRendering: true,
     );
