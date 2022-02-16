@@ -137,6 +137,40 @@ class SkeletonRenderObject extends RenderBox {
     size = constraints.biggest;
   }
 
+  /// You can override [buildPaint] for add paint filters.
+  /// For example, grayscale animation:
+  /// ```
+  /// @override
+  /// Paint buildPaint() => super.buildPaint()
+  ///   ..colorFilter = const ColorFilter.matrix(<double>[
+  ///     0.2126, 0.7152, 0.0722, 0, 0,
+  ///     0.2126, 0.7152, 0.0722, 0, 0,
+  ///     0.2126, 0.7152, 0.0722, 0, 0,
+  ///     0, 0, 0, 1, 0
+  ///   ]);
+  /// ```
+  /// \see [defaultPaint]
+  @mustCallSuper
+  Paint buildPaint() {
+    final Paint p = defaultPaint ?? Paint()
+      ..isAntiAlias = true;
+    return p..color = p.color.withOpacity(globalAlpha);
+  }
+
+  /// You can initialize or override [defaultPaint] for add paint filters.
+  /// /// For example, sepia animation:
+  /// ```
+  /// overridePaint = Paint()
+  ///   ..colorFilter = const ColorFilter.matrix(<double>[
+  ///     0.393, 0.769, 0.189, 0, 0,
+  ///     0.349, 0.686, 0.168, 0, 0,
+  ///     0.272, 0.534, 0.131, 0, 0,
+  ///     0, 0, 0, 1, 0,
+  ///   ]);
+  /// ```
+  /// \see [buildPaint]
+  Paint? defaultPaint;
+
   SkeletonAnimation get skeleton => _skeleton!;
 
   set skeleton(SkeletonAnimation value) {
@@ -576,12 +610,8 @@ class SkeletonRenderObject extends RenderBox {
         f,
         0.0,
         1.0,
-      ]));
-
-    final Paint p = Paint()..isAntiAlias = true;
-    p.color = p.color.withOpacity(globalAlpha);
-    canvas
-      ..drawImage(img, const Offset(0.0, 0.0), p)
+      ]))
+      ..drawImage(img, const Offset(0.0, 0.0), buildPaint())
       ..restore();
   }
 
