@@ -12,6 +12,7 @@ const Map<String, String> all = <String, String>{
   'cauldron': 'idle_1',
   'girl_and_whale_polygons': 'idle_offset',
   'girl_and_whale_rectangles': 'idle_offset',
+  'lamb': 'idle/idle_left',
   'owl': 'idle',
   'raptor': 'walk',
   'spineboy': 'walk',
