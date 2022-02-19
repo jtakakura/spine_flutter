@@ -9,9 +9,9 @@ void main() => runApp(const MyApp());
 
 /// All animations. Format: `model_name: defaultAnimation`.
 const Map<String, String> all = <String, String>{
-  'cauldron': 'idle_1',
-  'girl_and_whale_polygons': 'idle_offset',
-  'girl_and_whale_rectangles': 'idle_offset',
+  'cauldron': 'idle',
+  'girl_and_whale_polygons': 'idle',
+  'girl_and_whale_rectangles': 'idle',
   'owl': 'idle',
   'raptor': 'walk',
   'spineboy': 'walk',
