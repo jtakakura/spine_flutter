@@ -4,7 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:spine_flutter/spine_flutter.dart';
 
+/// \see http://ru.esotericsoftware.com/spine-runtimes-guide
 void main() => runApp(const MyApp());
+
+/// All animations. Format: `model_name: defaultAnimation`.
+const Map<String, String> all = <String, String>{
+  'cauldron': 'idle_1',
+  'girl_and_whale_polygons': 'idle_offset',
+  'girl_and_whale_rectangles': 'idle_offset',
+  'owl': 'idle',
+  'raptor': 'walk',
+  'spineboy': 'walk',
+};
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -27,50 +38,22 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   static const String pathPrefix = 'assets/';
 
-  late String name;
+  String name = all.keys.last;
+
   late Set<String> animations;
   late SkeletonAnimation skeleton;
 
-  String defaultAnimation = '';
-
   @override
-  void initState() {
-    super.initState();
+  Widget build(BuildContext context) => _buildFuture();
 
-    // cauldron
-    //name = 'cauldron';
-    //defaultAnimation = 'idle_1';
-
-    // girl_and_whale_polygons
-    name = 'girl_and_whale_polygons';
-    defaultAnimation = 'idle_offset';
-
-    // girl_and_whale_rectangles
-    //name = 'girl_and_whale_rectangles';
-    //defaultAnimation = 'idle_offset';
-
-    // raccoon
-    //name = 'raccoon';
-    //defaultAnimation = 'idle_4';
-
-    // raptor
-    //name = 'raptor';
-    //defaultAnimation = 'walk';
-
-    // spineboy
-    //name = 'spineboy';
-    //defaultAnimation = 'walk';
-  }
-
-  @override
-  Widget build(BuildContext context) => FutureBuilder<bool>(
+  Widget _buildFuture() => FutureBuilder<bool>(
         future: load(),
         builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
           if (snapshot.hasData) {
-            if (defaultAnimation.isEmpty && animations.isNotEmpty) {
-              defaultAnimation = animations.first;
+            if (animations.isNotEmpty) {
+              final String defaultAnimation = all[name]!;
+              skeleton.state.setAnimation(0, defaultAnimation, true);
             }
-            skeleton.state.setAnimation(0, defaultAnimation, true);
 
             return _buildScreen();
           }
@@ -90,12 +73,30 @@ class _MyHomePageState extends State<MyHomePage> {
       triangleRendering: true,
     );
 
-    final List<Widget> buttons = <Widget>[];
-    for (final String animation in animations) {
-      buttons.add(
+    final List<Widget> models = <Widget>[];
+    for (final String model in all.keys) {
+      models.add(
         TextButton(
-          child: Text(animation.toUpperCase()),
+          child: Text(model.toUpperCase()),
+          onPressed: () async {
+            name = model;
+            await load();
+            setState(() {
+              final String defaultAnimation = all[name]!;
+              skeleton.state.setAnimation(0, defaultAnimation, false);
+            });
+          },
+        ),
+      );
+    }
+
+    final List<Widget> states = <Widget>[];
+    for (final String animation in animations) {
+      states.add(
+        TextButton(
+          child: Text(animation.toLowerCase()),
           onPressed: () {
+            final String defaultAnimation = all[name]!;
             skeleton.state
               ..setAnimation(0, animation, false)
               ..addAnimation(0, defaultAnimation, true, 0.0);
@@ -113,8 +114,14 @@ class _MyHomePageState extends State<MyHomePage> {
           skeletonWidget,
           Positioned.fill(
             child: Wrap(
+              runAlignment: WrapAlignment.start,
+              children: models,
+            ),
+          ),
+          Positioned.fill(
+            child: Wrap(
               runAlignment: WrapAlignment.end,
-              children: buttons,
+              children: states,
             ),
           ),
         ],
@@ -141,8 +148,5 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<SkeletonAnimation> loadSkeleton() async =>
-      SkeletonAnimation.createWithFiles(
-        name,
-        pathBase: pathPrefix,
-      );
+      SkeletonAnimation.createWithFiles(name, pathBase: pathPrefix);
 }

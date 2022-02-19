@@ -6,7 +6,7 @@ import 'dart:math' as math;
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
-import 'package:fimber/fimber.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Texture;
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart' show rootBundle;
