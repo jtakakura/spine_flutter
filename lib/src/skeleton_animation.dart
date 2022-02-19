@@ -58,12 +58,6 @@ class SkeletonAnimation extends core.Skeleton {
     return SkeletonAnimation(skeletonData);
   }
 
-  static List<String> textureFiles(String name, int count) =>
-      List<String>.generate(count, (int i) => textureFile(name, i + 1));
-
-  static String textureFile(String name, int i) =>
-      i <= 1 ? '$name.png' : '${name}_$i.png';
-
   static Future<List<String>> textureFilesFromAtlas(String pathToAtlas) async {
     final String data = await rootBundle.loadString(pathToAtlas);
     final core.TextureAtlasReader reader = core.TextureAtlasReader(data);
