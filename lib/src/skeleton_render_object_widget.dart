@@ -75,7 +75,7 @@ class SkeletonRenderObject extends RenderBox {
   BoxFit? _fit;
   Alignment? _alignment;
   PlayState? _playState;
-  core.Bounds? _bounds;
+  core.Bounds? bounds;
   bool? _debugRendering;
   bool? _triangleRendering;
   Float32List _vertices = Float32List(8 * 1024);
@@ -118,11 +118,7 @@ class SkeletonRenderObject extends RenderBox {
 
     _resize(canvas, offset);
 
-    if (_triangleRendering!) {
-      _drawTriangles(canvas, _skeleton!);
-    } else {
-      _drawImages(canvas, _skeleton!);
-    }
+    draw(canvas);
 
     canvas.restore();
   }
@@ -141,6 +137,40 @@ class SkeletonRenderObject extends RenderBox {
     size = constraints.biggest;
   }
 
+  /// You can override [buildPaint] for add paint filters.
+  /// For example, grayscale animation:
+  /// ```
+  /// @override
+  /// Paint buildPaint() => super.buildPaint()
+  ///   ..colorFilter = const ColorFilter.matrix(<double>[
+  ///     0.2126, 0.7152, 0.0722, 0, 0,
+  ///     0.2126, 0.7152, 0.0722, 0, 0,
+  ///     0.2126, 0.7152, 0.0722, 0, 0,
+  ///     0, 0, 0, 1, 0
+  ///   ]);
+  /// ```
+  /// \see [defaultPaint]
+  @mustCallSuper
+  Paint buildPaint() {
+    final Paint p = defaultPaint ?? Paint()
+      ..isAntiAlias = true;
+    return p..color = p.color.withOpacity(globalAlpha);
+  }
+
+  /// You can initialize or override [defaultPaint] for add paint filters.
+  /// /// For example, sepia animation:
+  /// ```
+  /// overridePaint = Paint()
+  ///   ..colorFilter = const ColorFilter.matrix(<double>[
+  ///     0.393, 0.769, 0.189, 0, 0,
+  ///     0.349, 0.686, 0.168, 0, 0,
+  ///     0.272, 0.534, 0.131, 0, 0,
+  ///     0, 0, 0, 1, 0,
+  ///   ]);
+  /// ```
+  /// \see [buildPaint]
+  Paint? defaultPaint;
+
   SkeletonAnimation get skeleton => _skeleton!;
 
   set skeleton(SkeletonAnimation value) {
@@ -148,7 +178,7 @@ class SkeletonRenderObject extends RenderBox {
       return;
     }
     _skeleton = value;
-    if (_skeleton != null) _bounds = _calculateBounds(_skeleton!);
+    if (_skeleton != null) bounds = _calculateBounds(_skeleton!);
     markNeedsPaint();
   }
 
@@ -302,6 +332,14 @@ class SkeletonRenderObject extends RenderBox {
     }
 
     return vertices;
+  }
+
+  void draw(ui.Canvas canvas) {
+    if (_triangleRendering!) {
+      _drawTriangles(canvas, _skeleton!);
+    } else {
+      _drawImages(canvas, _skeleton!);
+    }
   }
 
   void _drawImages(ui.Canvas canvas, SkeletonAnimation skeleton) {
@@ -572,26 +610,22 @@ class SkeletonRenderObject extends RenderBox {
         f,
         0.0,
         1.0,
-      ]));
-
-    final Paint p = Paint()..isAntiAlias = true;
-    p.color = p.color.withOpacity(globalAlpha);
-    canvas
-      ..drawImage(img, const Offset(0.0, 0.0), p)
+      ]))
+      ..drawImage(img, const Offset(0.0, 0.0), buildPaint())
       ..restore();
   }
 
   void _resize(Canvas canvas, ui.Offset offset) {
-    if (_bounds == null) {
+    if (bounds == null) {
       return;
     }
 
-    final double contentHeight = _bounds!.size.y;
-    final double contentWidth = _bounds!.size.x;
-    final double x = -_bounds!.offset.x -
+    final double contentHeight = bounds!.size.y;
+    final double contentWidth = bounds!.size.x;
+    final double x = -bounds!.offset.x -
         contentWidth / 2.0 -
         (_alignment!.x * contentWidth / 2.0);
-    final double y = -_bounds!.offset.y -
+    final double y = -bounds!.offset.y -
         contentHeight / 2.0 +
         (_alignment!.y * contentHeight / 2.0);
     double scaleX = 1.0, scaleY = 1.0;
