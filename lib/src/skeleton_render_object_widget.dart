@@ -87,7 +87,7 @@ class SkeletonRenderObject extends RenderBox {
 
     if (_lastFrameTime == 0 || _skeleton == null) {
       _lastFrameTime = t;
-      SchedulerBinding.instance!.scheduleFrameCallback(beginFrame);
+      SchedulerBinding.instance.scheduleFrameCallback(beginFrame);
       return;
     }
 
@@ -100,7 +100,7 @@ class SkeletonRenderObject extends RenderBox {
       ..updateWorldTransform();
 
     if (_playState == PlayState.playing) {
-      SchedulerBinding.instance!.scheduleFrameCallback(beginFrame);
+      SchedulerBinding.instance.scheduleFrameCallback(beginFrame);
     }
 
     markNeedsPaint();
@@ -210,7 +210,7 @@ class SkeletonRenderObject extends RenderBox {
     }
     _playState = value;
     if (_playState == PlayState.playing) {
-      SchedulerBinding.instance!.scheduleFrameCallback(beginFrame);
+      SchedulerBinding.instance.scheduleFrameCallback(beginFrame);
     }
   }
 
