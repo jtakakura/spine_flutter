@@ -31,8 +31,8 @@ class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
       required this.playState,
       this.debugRendering = false,
       this.triangleRendering = false,
-      Key? key})
-      : super(key: key);
+      this.frameSizeMultiplier = 0.0,
+      super.key});
 
   final SkeletonAnimation skeleton;
   final BoxFit fit;
@@ -40,6 +40,10 @@ class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
   final PlayState playState;
   final bool debugRendering;
   final bool triangleRendering;
+
+  /// Нow many percent increase the size of the animation
+  /// relative to the size of the first frame.
+  final double frameSizeMultiplier;
 
   @override
   RenderObject createRenderObject(BuildContext context) =>
@@ -49,19 +53,20 @@ class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
         ..alignment = alignment
         ..playState = playState
         ..debugRendering = debugRendering
-        ..triangleRendering = triangleRendering;
+        ..triangleRendering = triangleRendering
+        ..frameSizeMultiplier = frameSizeMultiplier;
 
   @override
   void updateRenderObject(
-      BuildContext context, covariant SkeletonRenderObject renderObject) {
-    renderObject
-      ..skeleton = skeleton
-      ..fit = fit
-      ..alignment = alignment
-      ..playState = playState
-      ..debugRendering = debugRendering
-      ..triangleRendering = triangleRendering;
-  }
+          BuildContext context, covariant SkeletonRenderObject renderObject) =>
+      renderObject
+        ..skeleton = skeleton
+        ..fit = fit
+        ..alignment = alignment
+        ..playState = playState
+        ..debugRendering = debugRendering
+        ..triangleRendering = triangleRendering
+        ..frameSizeMultiplier = frameSizeMultiplier;
 }
 
 class SkeletonRenderObject extends RenderBox {
@@ -78,6 +83,8 @@ class SkeletonRenderObject extends RenderBox {
   core.Bounds? bounds;
   bool? _debugRendering;
   bool? _triangleRendering;
+  double? _frameSizeMultiplier;
+
   Float32List _vertices = Float32List(8 * 1024);
   double _lastFrameTime = 0.0;
 
@@ -234,6 +241,19 @@ class SkeletonRenderObject extends RenderBox {
     markNeedsPaint();
   }
 
+  /// Нow many percent increase the size of the animation
+  /// relative to the size of the first frame.
+  double get frameSizeMultiplier => _frameSizeMultiplier ?? 0.0;
+
+  set frameSizeMultiplier(double value) {
+    if (_frameSizeMultiplier == value) {
+      return;
+    }
+    _frameSizeMultiplier = value;
+    if (_skeleton != null) bounds = _calculateBounds(_skeleton!);
+    markNeedsPaint();
+  }
+
   core.Bounds _calculateBounds(SkeletonAnimation skeleton) {
     skeleton
       ..setToSetupPose()
@@ -242,7 +262,12 @@ class SkeletonRenderObject extends RenderBox {
     final core.Vector2 size = core.Vector2();
     skeleton.getBounds(offset, size, <double>[]);
 
-    return core.Bounds(offset, size);
+    final core.Vector2 delta = core.Vector2(
+        size.x * frameSizeMultiplier, size.y * frameSizeMultiplier);
+
+    return core.Bounds(
+        core.Vector2(offset.x - delta.x / 2, offset.y - delta.y / 2),
+        core.Vector2(size.x + delta.x, size.y + delta.y));
   }
 
   Float32List _computeRegionVertices(
@@ -555,7 +580,7 @@ class SkeletonRenderObject extends RenderBox {
     u2 *= img.width;
     v2 *= img.height;
 
-    final Path _path = Path()
+    final Path path = Path()
       ..moveTo(x0, y0)
       ..lineTo(x1, y1)
       ..lineTo(x2, y2)
@@ -583,7 +608,7 @@ class SkeletonRenderObject extends RenderBox {
 
     canvas
       ..save()
-      ..clipPath(_path, doAntiAlias: false)
+      ..clipPath(path, doAntiAlias: false)
 
       /*
         https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/transform
