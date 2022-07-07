@@ -284,6 +284,7 @@ class SkeletonRenderObject extends RenderBox {
     _animation = value;
     if (_skeleton != null && animation != null) {
       skeleton.state.setAnimation(0, animation!, true);
+      bounds = _calculateBounds();
       markNeedsPaint();
     }
   }
