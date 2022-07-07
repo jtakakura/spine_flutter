@@ -76,7 +76,7 @@ class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
 }
 
 class SkeletonRenderObject extends RenderBox {
-  /// How many frames we will use for calculate a render size.
+  /// How many steps we will use for calculate a render size by [animation].
   static const int countStepsForCalculateBounds = 100;
 
   static const List<int> quadTriangles = <int>[0, 1, 2, 2, 3, 0];
