@@ -32,6 +32,7 @@ class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
       this.debugRendering = false,
       this.triangleRendering = false,
       this.frameSizeMultiplier = 0.0,
+      this.animation,
       super.key});
 
   final SkeletonAnimation skeleton;
@@ -45,6 +46,9 @@ class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
   /// relative to the size of the first frame.
   final double frameSizeMultiplier;
 
+  /// A start animation. We will use it for calculate bounds by frames.
+  final String? animation;
+
   @override
   RenderObject createRenderObject(BuildContext context) =>
       SkeletonRenderObject()
@@ -54,7 +58,8 @@ class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
         ..playState = playState
         ..debugRendering = debugRendering
         ..triangleRendering = triangleRendering
-        ..frameSizeMultiplier = frameSizeMultiplier;
+        ..frameSizeMultiplier = frameSizeMultiplier
+        ..animation = animation;
 
   @override
   void updateRenderObject(
@@ -66,10 +71,14 @@ class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
         ..playState = playState
         ..debugRendering = debugRendering
         ..triangleRendering = triangleRendering
-        ..frameSizeMultiplier = frameSizeMultiplier;
+        ..frameSizeMultiplier = frameSizeMultiplier
+        ..animation = animation;
 }
 
 class SkeletonRenderObject extends RenderBox {
+  /// How many frames we will use for calculate a render size.
+  static const int countStepsForCalculateBounds = 100;
+
   static const List<int> quadTriangles = <int>[0, 1, 2, 2, 3, 0];
   static const int vertexSize = 2 + 2 + 4;
 
@@ -84,6 +93,7 @@ class SkeletonRenderObject extends RenderBox {
   bool? _debugRendering;
   bool? _triangleRendering;
   double? _frameSizeMultiplier;
+  String? _animation;
 
   Float32List _vertices = Float32List(8 * 1024);
   double _lastFrameTime = 0.0;
@@ -185,7 +195,7 @@ class SkeletonRenderObject extends RenderBox {
       return;
     }
     _skeleton = value;
-    if (_skeleton != null) bounds = _calculateBounds(_skeleton!);
+    if (_skeleton != null) bounds = _calculateBounds();
     markNeedsPaint();
   }
 
@@ -250,24 +260,115 @@ class SkeletonRenderObject extends RenderBox {
       return;
     }
     _frameSizeMultiplier = value;
-    if (_skeleton != null) bounds = _calculateBounds(_skeleton!);
-    markNeedsPaint();
+    if (_skeleton != null) {
+      bounds = _calculateBounds();
+      markNeedsPaint();
+    }
   }
 
-  core.Bounds _calculateBounds(SkeletonAnimation skeleton) {
+  /// A start animation. We will use it for calculate bounds by frames.
+  String? get animation {
+    if (_animation != null) {
+      return _animation;
+    }
+    if (skeleton.data.animations.isNotEmpty) {
+      return skeleton.data.animations.first.name;
+    }
+    return null;
+  }
+
+  set animation(String? value) {
+    if (_animation == value) {
+      return;
+    }
+    _animation = value;
+    if (_skeleton != null && animation != null) {
+      skeleton.state.setAnimation(0, animation!, true);
+      markNeedsPaint();
+    }
+  }
+
+  core.Bounds _calculateBounds() {
+    late final core.Bounds bounds;
+    if (_animation == null) {
+      skeleton
+        ..setToSetupPose()
+        ..updateWorldTransform();
+      final core.Vector2 offset = core.Vector2();
+      final core.Vector2 size = core.Vector2();
+      skeleton.getBounds(offset, size, <double>[]);
+      bounds = core.Bounds(offset, size);
+    } else {
+      bounds = calculateBoundsByAnimation();
+    }
+
+    final core.Vector2 delta = core.Vector2(
+      bounds.size.x * frameSizeMultiplier,
+      bounds.size.y * frameSizeMultiplier,
+    );
+
+    return core.Bounds(
+      core.Vector2(
+        bounds.offset.x - delta.x / 2,
+        bounds.offset.y - delta.y / 2,
+      ),
+      core.Vector2(
+        bounds.size.x + delta.x,
+        bounds.size.y + delta.y,
+      ),
+    );
+  }
+
+  /// \thanks https://github.com/EsotericSoftware/spine-runtimes/blob/3.7/spine-ts/player/src/Player.ts#L1169
+  core.Bounds calculateBoundsByAnimation() {
+    final core.Vector2 offset = core.Vector2();
+    final core.Vector2 size = core.Vector2();
+    if (animation == null) {
+      return core.Bounds(offset, size);
+    }
+
+    final core.Animation? skeletonAnimation =
+        skeleton.data.findAnimation(animation!);
+    if (skeletonAnimation == null) {
+      return core.Bounds(offset, size);
+    }
+
+    skeleton.state.clearTracks();
     skeleton
       ..setToSetupPose()
       ..updateWorldTransform();
-    final core.Vector2 offset = core.Vector2();
-    final core.Vector2 size = core.Vector2();
-    skeleton.getBounds(offset, size, <double>[]);
+    skeleton.state.setAnimationWith(0, skeletonAnimation, true);
 
-    final core.Vector2 delta = core.Vector2(
-        size.x * frameSizeMultiplier, size.y * frameSizeMultiplier);
+    final double stepTime = skeletonAnimation.duration > 0.0
+        ? skeletonAnimation.duration / countStepsForCalculateBounds
+        : 0.0;
+    double minX = double.maxFinite;
+    double maxX = -double.maxFinite;
+    double minY = double.maxFinite;
+    double maxY = -double.maxFinite;
 
-    return core.Bounds(
-        core.Vector2(offset.x - delta.x / 2, offset.y - delta.y / 2),
-        core.Vector2(size.x + delta.x, size.y + delta.y));
+    for (int i = 0; i < countStepsForCalculateBounds; ++i) {
+      skeleton.state
+        ..update(stepTime)
+        ..apply(skeleton);
+      skeleton
+        ..updateWorldTransform()
+        ..getBounds(offset, size, <double>[]);
+
+      minX = min(offset.x, minX);
+      maxX = max(offset.x + size.x, maxX);
+      minY = min(offset.y, minY);
+      maxY = max(offset.y + size.y, maxY);
+    }
+
+    offset
+      ..x = minX
+      ..y = minY;
+    size
+      ..x = maxX - minX
+      ..y = maxY - minY;
+
+    return core.Bounds(offset, size);
   }
 
   Float32List _computeRegionVertices(

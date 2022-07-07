@@ -67,12 +67,13 @@ class MyHomePageState extends State<MyHomePage> {
     final SkeletonRenderObjectWidget skeletonWidget =
         SkeletonRenderObjectWidget(
       skeleton: skeleton,
+      animation: all[name],
       alignment: Alignment.center,
       fit: BoxFit.contain,
       playState: PlayState.playing,
       debugRendering: false,
       triangleRendering: true,
-      frameSizeMultiplier: 0.3,
+      //frameSizeMultiplier: 0.3,
     );
 
     final List<Widget> models = <Widget>[];
