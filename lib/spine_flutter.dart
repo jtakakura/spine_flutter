@@ -3,7 +3,6 @@ library spine_flutter;
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math' as math;
-import 'dart:math';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 

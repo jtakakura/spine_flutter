@@ -356,10 +356,10 @@ class SkeletonRenderObject extends RenderBox {
         ..updateWorldTransform()
         ..getBounds(offset, size, <double>[]);
 
-      minX = min(offset.x, minX);
-      maxX = max(offset.x + size.x, maxX);
-      minY = min(offset.y, minY);
-      maxY = max(offset.y + size.y, maxY);
+      minX = math.min(offset.x, minX);
+      maxX = math.max(offset.x + size.x, maxX);
+      minY = math.min(offset.y, minY);
+      maxY = math.max(offset.y + size.y, maxY);
     }
 
     offset
