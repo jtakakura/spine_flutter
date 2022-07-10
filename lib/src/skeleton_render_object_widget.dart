@@ -31,8 +31,9 @@ class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
       required this.playState,
       this.debugRendering = false,
       this.triangleRendering = false,
-      Key? key})
-      : super(key: key);
+      this.frameSizeMultiplier = 0.0,
+      this.animation,
+      super.key});
 
   final SkeletonAnimation skeleton;
   final BoxFit fit;
@@ -40,6 +41,13 @@ class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
   final PlayState playState;
   final bool debugRendering;
   final bool triangleRendering;
+
+  /// Нow many percent increase the size of the animation
+  /// relative to the size of the first frame.
+  final double frameSizeMultiplier;
+
+  /// A start animation. We will use it for calculate bounds by frames.
+  final String? animation;
 
   @override
   RenderObject createRenderObject(BuildContext context) =>
@@ -49,22 +57,28 @@ class SkeletonRenderObjectWidget extends LeafRenderObjectWidget {
         ..alignment = alignment
         ..playState = playState
         ..debugRendering = debugRendering
-        ..triangleRendering = triangleRendering;
+        ..triangleRendering = triangleRendering
+        ..frameSizeMultiplier = frameSizeMultiplier
+        ..animation = animation;
 
   @override
   void updateRenderObject(
-      BuildContext context, covariant SkeletonRenderObject renderObject) {
-    renderObject
-      ..skeleton = skeleton
-      ..fit = fit
-      ..alignment = alignment
-      ..playState = playState
-      ..debugRendering = debugRendering
-      ..triangleRendering = triangleRendering;
-  }
+          BuildContext context, covariant SkeletonRenderObject renderObject) =>
+      renderObject
+        ..skeleton = skeleton
+        ..fit = fit
+        ..alignment = alignment
+        ..playState = playState
+        ..debugRendering = debugRendering
+        ..triangleRendering = triangleRendering
+        ..frameSizeMultiplier = frameSizeMultiplier
+        ..animation = animation;
 }
 
 class SkeletonRenderObject extends RenderBox {
+  /// How many steps we will use for calculate a render size by [animation].
+  static const int countStepsForCalculateBounds = 100;
+
   static const List<int> quadTriangles = <int>[0, 1, 2, 2, 3, 0];
   static const int vertexSize = 2 + 2 + 4;
 
@@ -78,6 +92,9 @@ class SkeletonRenderObject extends RenderBox {
   core.Bounds? bounds;
   bool? _debugRendering;
   bool? _triangleRendering;
+  double? _frameSizeMultiplier;
+  String? _animation;
+
   Float32List _vertices = Float32List(8 * 1024);
   double _lastFrameTime = 0.0;
 
@@ -178,7 +195,7 @@ class SkeletonRenderObject extends RenderBox {
       return;
     }
     _skeleton = value;
-    if (_skeleton != null) bounds = _calculateBounds(_skeleton!);
+    if (_skeleton != null) bounds = _calculateBounds();
     markNeedsPaint();
   }
 
@@ -234,13 +251,123 @@ class SkeletonRenderObject extends RenderBox {
     markNeedsPaint();
   }
 
-  core.Bounds _calculateBounds(SkeletonAnimation skeleton) {
+  /// Нow many percent increase the size of the animation
+  /// relative to the size of the first frame.
+  double get frameSizeMultiplier => _frameSizeMultiplier ?? 0.0;
+
+  set frameSizeMultiplier(double value) {
+    if (_frameSizeMultiplier == value) {
+      return;
+    }
+    _frameSizeMultiplier = value;
+    if (_skeleton != null) {
+      bounds = _calculateBounds();
+      markNeedsPaint();
+    }
+  }
+
+  /// A start animation. We will use it for calculate bounds by frames.
+  String? get animation {
+    if (_animation != null) {
+      return _animation;
+    }
+    if (skeleton.data.animations.isNotEmpty) {
+      return skeleton.data.animations.first.name;
+    }
+    return null;
+  }
+
+  set animation(String? value) {
+    if (_animation == value) {
+      return;
+    }
+    _animation = value;
+    if (_skeleton != null && animation != null) {
+      skeleton.state.setAnimation(0, animation!, true);
+      bounds = _calculateBounds();
+      markNeedsPaint();
+    }
+  }
+
+  core.Bounds _calculateBounds() {
+    late final core.Bounds bounds;
+    if (_animation == null) {
+      skeleton
+        ..setToSetupPose()
+        ..updateWorldTransform();
+      final core.Vector2 offset = core.Vector2();
+      final core.Vector2 size = core.Vector2();
+      skeleton.getBounds(offset, size, <double>[]);
+      bounds = core.Bounds(offset, size);
+    } else {
+      bounds = calculateBoundsByAnimation();
+    }
+
+    final core.Vector2 delta = core.Vector2(
+      bounds.size.x * frameSizeMultiplier,
+      bounds.size.y * frameSizeMultiplier,
+    );
+
+    return core.Bounds(
+      core.Vector2(
+        bounds.offset.x - delta.x / 2,
+        bounds.offset.y - delta.y / 2,
+      ),
+      core.Vector2(
+        bounds.size.x + delta.x,
+        bounds.size.y + delta.y,
+      ),
+    );
+  }
+
+  /// \thanks https://github.com/EsotericSoftware/spine-runtimes/blob/3.7/spine-ts/player/src/Player.ts#L1169
+  core.Bounds calculateBoundsByAnimation() {
+    final core.Vector2 offset = core.Vector2();
+    final core.Vector2 size = core.Vector2();
+    if (animation == null) {
+      return core.Bounds(offset, size);
+    }
+
+    final core.Animation? skeletonAnimation =
+        skeleton.data.findAnimation(animation!);
+    if (skeletonAnimation == null) {
+      return core.Bounds(offset, size);
+    }
+
+    skeleton.state.clearTracks();
     skeleton
       ..setToSetupPose()
       ..updateWorldTransform();
-    final core.Vector2 offset = core.Vector2();
-    final core.Vector2 size = core.Vector2();
-    skeleton.getBounds(offset, size, <double>[]);
+    skeleton.state.setAnimationWith(0, skeletonAnimation, true);
+
+    final double stepTime = skeletonAnimation.duration > 0.0
+        ? skeletonAnimation.duration / countStepsForCalculateBounds
+        : 0.0;
+    double minX = double.maxFinite;
+    double maxX = -double.maxFinite;
+    double minY = double.maxFinite;
+    double maxY = -double.maxFinite;
+
+    for (int i = 0; i < countStepsForCalculateBounds; ++i) {
+      skeleton.state
+        ..update(stepTime)
+        ..apply(skeleton);
+      skeleton
+        ..updateWorldTransform()
+        ..getBounds(offset, size, <double>[]);
+
+      minX = math.min(offset.x, minX);
+      maxX = math.max(offset.x + size.x, maxX);
+      minY = math.min(offset.y, minY);
+      maxY = math.max(offset.y + size.y, maxY);
+    }
+
+    offset
+      ..x = minX
+      ..y = minY;
+    size
+      ..x = maxX - minX
+      ..y = maxY - minY;
 
     return core.Bounds(offset, size);
   }
@@ -555,7 +682,7 @@ class SkeletonRenderObject extends RenderBox {
     u2 *= img.width;
     v2 *= img.height;
 
-    final Path _path = Path()
+    final Path path = Path()
       ..moveTo(x0, y0)
       ..lineTo(x1, y1)
       ..lineTo(x2, y2)
@@ -583,7 +710,7 @@ class SkeletonRenderObject extends RenderBox {
 
     canvas
       ..save()
-      ..clipPath(_path, doAntiAlias: false)
+      ..clipPath(path, doAntiAlias: false)
 
       /*
         https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/transform

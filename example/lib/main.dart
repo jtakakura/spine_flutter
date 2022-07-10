@@ -10,6 +10,7 @@ void main() => runApp(const MyApp());
 /// All animations. Format: `model_name: defaultAnimation`.
 const Map<String, String> all = <String, String>{
   'cauldron': 'idle',
+  'fox': 'idle',
   'girl_and_whale_polygons': 'idle',
   'girl_and_whale_rectangles': 'idle',
   'owl': 'idle',
@@ -32,10 +33,10 @@ class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  MyHomePageState createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePageState extends State<MyHomePage> {
   static const String pathPrefix = 'assets/';
 
   String name = all.keys.last;
@@ -66,11 +67,13 @@ class _MyHomePageState extends State<MyHomePage> {
     final SkeletonRenderObjectWidget skeletonWidget =
         SkeletonRenderObjectWidget(
       skeleton: skeleton,
+      animation: all[name],
       alignment: Alignment.center,
       fit: BoxFit.contain,
       playState: PlayState.playing,
       debugRendering: false,
       triangleRendering: true,
+      //frameSizeMultiplier: 0.3,
     );
 
     final List<Widget> models = <Widget>[];
