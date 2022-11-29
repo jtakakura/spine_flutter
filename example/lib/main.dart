@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:spine_flutter/spine_flutter.dart';
+import 'package:spine_flutter_dart/spine_flutter.dart';
 
 /// \see http://ru.esotericsoftware.com/spine-runtimes-guide
 void main() => runApp(const MyApp());
