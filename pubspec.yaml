@@ -13,7 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  spine_core: ^0.3.4
+  spine_core: ^0.3.5
 
 dev_dependencies:
   flutter_lints: ^2.0.1
