@@ -19,3 +19,8 @@
 - Update spine_core to 0.3.4
 - Update the minimum SDK version
 - Remove upper constraint for flutter environment
+
+## 0.2.0
+
+- Change the library name
+- Update spine_core to 0.3.5
