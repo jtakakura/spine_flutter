@@ -1,4 +1,4 @@
-part of spine_flutter;
+part of spine_flutter_dart;
 
 class SkeletonAnimation extends core.Skeleton {
   SkeletonAnimation(core.SkeletonData data)

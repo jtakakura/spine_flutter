@@ -121,7 +121,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.5"
-  spine_flutter:
+  spine_flutter_dart:
     dependency: "direct main"
     description:
       path: ".."

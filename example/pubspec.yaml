@@ -13,7 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.5
-  spine_flutter:
+  spine_flutter_dart:
     path: ../
 
 dev_dependencies:

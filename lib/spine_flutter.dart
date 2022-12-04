@@ -1,4 +1,4 @@
-library spine_flutter;
+library spine_flutter_dart;
 
 import 'dart:async';
 import 'dart:convert';
